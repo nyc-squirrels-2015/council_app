@@ -1,5 +1,5 @@
 class AddImageToQ < ActiveRecord::Migration
   def change
-    add_attachment :questions, :image, null: false
+    add_attachment :questions, :image
   end
 end

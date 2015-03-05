@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
   has_many :councils
   has_many :council_memberships, foreign_key: 'user_id'
   has_many :attended_councils, class_name: 'Council', through: :council_memberships, source: :council
+
+  # validation
 end

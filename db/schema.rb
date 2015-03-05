@@ -17,34 +17,34 @@ ActiveRecord::Schema.define(version: 20150305212150) do
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.integer  "question_id"
-    t.integer  "user_id"
-    t.string   "content"
+    t.integer  "question_id", null: false
+    t.integer  "user_id",     null: false
+    t.boolean  "like",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "council_memberships", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "council_id"
+    t.integer "user_id",    null: false
+    t.integer "council_id", null: false
   end
 
   create_table "councils", force: :cascade do |t|
-    t.integer "user_id"
-    t.string  "name"
+    t.integer "user_id",      null: false
+    t.string  "council_name", null: false
   end
 
   create_table "friendships", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "friend_id"
+    t.integer  "user_id",    null: false
+    t.integer  "friend_id",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "questions", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "council_id"
-    t.string   "details"
+    t.integer  "user_id",            null: false
+    t.integer  "council_id",         null: false
+    t.string   "content",            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_file_name"
@@ -54,8 +54,9 @@ ActiveRecord::Schema.define(version: 20150305212150) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "name"
+    t.string   "firstname",       null: false
+    t.string   "lastname",        null: false
+    t.string   "email",           null: false
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
