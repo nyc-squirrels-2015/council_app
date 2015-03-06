@@ -2,6 +2,8 @@
 <ul>
   <%= form_for [@question, @answer] do |f| %>
     <li>
+      <% f.label :user_id %>
+      <% f.text_field :user_id %>
       <%= f.label :question_id %>
       <%= f.text_field :question_id %>
       <%= f.label :like %>
