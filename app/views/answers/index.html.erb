@@ -5,13 +5,13 @@
       t.boolean :like, null: false
  -->
 
-<div class="list_answers">
+<%= link_to "create answer", new_answer_path %>
+<ul>
   <% @answers.each do |answer| %>
-    <div class="answer">
-      <div class="swipe">
-        <% if swipe == true %> 
-        <% end %>
-      </div>
+    <li><%= link_to answer.like, answer_path(answer) %></li>
   <% end %>
-</div>  
+</ul>
+
+
+
       
