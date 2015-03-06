@@ -7,12 +7,16 @@ class AnswersController < ApplicationController
 
 	def new
 		@answer = Answer.new
+		@question = Question.find(params[:question_id])
+		@user = current_user
 	end
 	
 	def create
 		@answer = Answer.new answer_params
+		@question = @answer.question
     if @answer.save
-      redirect_to answer_path(@answer)
+    	# parameters that I saved?
+      redirect_to question_path(@question)
     else
       render :new
   	end
@@ -28,6 +32,6 @@ class AnswersController < ApplicationController
  private
 
 def answer_params
- 	params.require(:answers).permit(:question_id, :user_id, :like)
+ 	params.require(:answer).permit(:question_id, :user_id, :like)
  end 
 end
