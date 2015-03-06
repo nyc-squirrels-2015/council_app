@@ -1,0 +1,17 @@
+<h1>Create a new answer</h1>
+<ul>
+  <%= form_for @answer do |f| %>
+    <li>
+      <%= f.label :user_id %>
+      <%= f.text_field :user_id %>
+      <%= f.label :question_id %>
+      <%= f.text_field :question_id %>
+      <%= f.label :like %>
+      <%= f.text_field :like %>
+      <!-- there is no boolean type? -->
+    </li>
+    <li>
+      <%= f.submit %>
+    </li>
+  <% end %>
+</ul>
