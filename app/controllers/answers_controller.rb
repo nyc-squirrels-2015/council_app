@@ -1,7 +1,6 @@
 class AnswersController < ApplicationController
 	
 	def index
-		#a list of others' answers to your questions
 		 @answers = Answer.all
 	end
 
@@ -12,22 +11,19 @@ class AnswersController < ApplicationController
 	end
 	
 	def create
-		@answer = Answer.new answer_params
-		@question = @answer.question
+		@answer = Answer.new(answer_params)
+		@answer.question = Question.find(params[:question_id])
+		@answer.user = current_user
+
+		
     if @answer.save
-    	# parameters that I saved?
-      redirect_to question_path(@question)
+      redirect_to question_path(@answer.question)
     else
+    	#flash error
       render :new
   	end
 	end
 
-
-  # def recent
-  #   Answer.ordered_json
-  #   answers = Answer.ordered_json
-  #   render json: answers
-  # end
 
  private
 
