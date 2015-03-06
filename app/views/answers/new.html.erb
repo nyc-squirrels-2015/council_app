@@ -1,9 +1,7 @@
 <h1>Create a new answer</h1>
 <ul>
-  <%= form_for @answer do |f| %>
+  <%= form_for [@question, @answer] do |f| %>
     <li>
-      <%= f.label :user_id %>
-      <%= f.text_field :user_id %>
       <%= f.label :question_id %>
       <%= f.text_field :question_id %>
       <%= f.label :like %>

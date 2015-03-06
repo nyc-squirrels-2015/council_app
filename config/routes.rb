@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :questions
 
   resources  :councils
@@ -9,10 +10,17 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'# The priority is based upon order of creation: first created -> highest priority.
+=======
+  resources :questions do
+    resources :answers do
+    end
+  end
+  # The priority is based upon order of creation: first created -> highest priority.
+>>>>>>> Fix answers new method
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  resources :answers
+  
   root :to => 'welcome#index'
 
 
