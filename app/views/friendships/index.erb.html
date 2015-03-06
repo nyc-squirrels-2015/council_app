@@ -1,0 +1,11 @@
+<div class = "friend_list"> 
+  <p> Your Friends:</p>
+  <table>
+    <%= @friendships.each do |friendship| %>
+      <tr>
+        <td><% @friendship.friend.firstname %></td> 
+        <td> <% @friendship.friend.lastname %></td>
+      </tr>
+    <%= end %>
+  </table>
+</div>
