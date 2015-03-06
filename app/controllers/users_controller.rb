@@ -4,20 +4,15 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    render :new, layout: false
   end
 
   def create
     @user = User.new(user_params)
-    respond_to do |format|
-      if @user.save
-        set_session
-        format.html { redirect_to @user, notice: 'User Created' }
-        format.json { render :user, status: :created, location: @user }
-      else
-        format.html { redirect_to :new_user }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.save
+      set_session
+      redirect_to user_path(@user)
+    else
+      render :new
     end
   end
 
@@ -28,24 +23,17 @@ class UsersController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User Updated' }
-        format.json { render :show, status: :updated, location: @user }
-      else
-        format.html { redirect to :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    @user = User.find params[:id]
+    if @user.update_attributes user_params
+      redirect_to user_path(@user)
+    else
+      render :edit
     end
   end
 
   def destroy
     session.clear if @user == current_user
     @user.destroy
-    respond_to do |format|
-      format.html { redirect_to login }
-      format.json { head :no_content }
-    end
   end
 
   private
