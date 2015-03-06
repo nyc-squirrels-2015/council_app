@@ -17,6 +17,10 @@ class CouncilsController < ApplicationController
     end
   end
 
+  def show
+    find_council(params[:id])
+  end
+
   def edit
     find_council(params[:id])
   end
