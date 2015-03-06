@@ -1,0 +1,13 @@
+<h2> This is the list of others' answers to your questions </h2>
+
+
+<%= link_to "create answer", new_answer_path %>
+<ul>
+  <% @answers.each do |answer| %>
+    <li><%= link_to answer.like, answer_path(answer) %></li>
+  <% end %>
+</ul>
+
+
+
+      

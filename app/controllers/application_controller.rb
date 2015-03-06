@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   def set_session
     if @user
       session[:user_id] = @user.id
-      require_login
+      # require_login
     end
   end
 
