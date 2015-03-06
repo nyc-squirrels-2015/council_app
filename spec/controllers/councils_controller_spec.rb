@@ -19,7 +19,6 @@ describe CouncilsController do
 
   describe "#create" do
     it "creates the council if valid params" do
-
       post :create, council: {
         council_name: 'Travel',
         user_id: 1
