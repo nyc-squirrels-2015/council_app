@@ -1,0 +1,16 @@
+<h1>Create a new question</h1>
+<ul>
+  <%= form_for @question do |f| %>
+    <li>
+      <%= f.label :user_id %>
+      <%= f.text_field :user_id %>
+      <%= f.label :council_id %>
+      <%= f.text_field :council_id %>
+      <%= f.label :content %>
+      <%= f.text_field :content %>
+    </li>
+    <li>
+      <%= f.submit %>
+    </li>
+  <% end %>
+</ul>
