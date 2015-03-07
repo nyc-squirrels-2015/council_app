@@ -2,7 +2,11 @@ require 'rails_helper'
 
 describe CouncilsController do
   let(:user) {FactoryGirl.create :user}
-   let(:council) { FactoryGirl.create :council }
+  let(:council) { FactoryGirl.create :council }
+
+  before do
+    stub_current_user user
+  end
 
   describe "#index" do
     it "assigns the councils to Council.all" do
