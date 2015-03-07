@@ -1,38 +1,36 @@
 class FriendshipsController < ApplicationController
 
-  def new
-    @user = current_user
-    @friendship = Friendship.new
-  end
-
   def index
     @friendships = Friendship.where(user_id: current_user.id)
   end
 
   def create
-     params[:friendships] = "Hello"
-     # params[:friendships][:user_id] = current_user.id
-     # params[:friendships][:friend_id] = find_friend_id(params[:email])
-     p "*" * 50
-     p params
-     @friendship = Friendship.new(user_id: current_user.id, friend_id: find_friend_id(params[:email]))
-     puts "I'M OVER HERE!! #{@friendship.inspect} "
-     
+
+     @friendship = Friendship.create(user_id: current_user.id, friend_id: find_friend_id(params[:email]))
+     redirect_to friendship_path(@friendship)
   end
 
-  def delete
-    Friendship(current_user.id, params[:friend_id]).destroy
-    redirect_to root_path
+  def new
+    @user = current_user
+    @friendship = Friendship.new
   end
+
 
   def show
-    @friendship = Friendship.find(current_user.id, params[:friend_id])
+    @friendship = Friendship.find(params[:id])
   end
 
+
+  def destroy
+      Friendship.find(params[:id]).destroy
+    redirect_to friendships_path
+  end
+
+
   private
-    
+
   def friendship_params
-    params.require(:friendship).permit!
+    params.require(:friendship).permit(:id)
   end
 
   def find_friend_id(email)
