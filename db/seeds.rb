@@ -30,7 +30,7 @@ mcou.members << jay
 
 jcou = Council.create!(user:jay, council_name:"Apartment Council")
 jcou.members << missy
-jcou.memebers << anna
+jcou.members << anna
 
 acou = Council.create!(user:anna, council_name:"Spring Council")
 acou.members << missy

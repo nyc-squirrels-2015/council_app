@@ -7,6 +7,9 @@
 <!-- TEMP IMAGE -->
 <%= image_tag @question.image.url(:medium) %>
 <br>
+<% if current_user == @question.user%>
+  <%= render 'answers/answers_count' %>
+<% end %>
 
 
 <span>
