@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe CouncilsController do
+  let(:user) {FactoryGirl.create :user}
    let(:council) { FactoryGirl.create :council }
 
   describe "#index" do
@@ -19,10 +20,7 @@ describe CouncilsController do
 
   describe "#create" do
     it "creates the council if valid params" do
-      post :create, council: {
-        council_name: 'Travel',
-        user_id: 1
-      }
+      post :create, council: FactoryGirl.attributes_for(:council)
 
       expect(response).to be_redirect
     end
@@ -48,7 +46,7 @@ describe CouncilsController do
   end
 
   describe "#destroy" do
-    it "delete the post" do
+    it "delete the council" do
       delete :destroy, id: council.id
       expect(response).to be_redirect
     end
