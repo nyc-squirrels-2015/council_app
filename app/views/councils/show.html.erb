@@ -1,8 +1,12 @@
-<div class="container">
+<div class="council_container">
   <h2> <%= @council.council_name %></h2>
+  <%= button_to "Add Friend",form_class: 'show_add', class:'btn_friend' %>
+  <div id="add_friend">
+    hey!!
+  </div>
   <div id='council_member'>
     Council Member
   </div>
-    <%= button_to "Add Friend"  %>
+
 
 </div>
