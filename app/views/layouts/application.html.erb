@@ -14,7 +14,7 @@
 <script type="text/javascript">
 	// TOUCH-EVENTS SINGLE-FINGER SWIPE-SENSING JAVASCRIPT
 	// Courtesy of PADILICIOUS.COM and MACOSXAUTOMATION.COM
-	
+
 	// this script can be used with one or more page elements to perform actions based on them being swiped with a single finger
 
 	var triggerElementID = null; // this variable is used to identity the triggering element
@@ -31,9 +31,9 @@
 	var swipeLength = 0;
 	var swipeAngle = null;
 	var swipeDirection = null;
-	
+
 	// The 4 Touch Event Handlers
-	
+
 	// NOTE: the touchStart handler should also receive the ID of the triggering element
 	// make sure its ID is passed in the event call placed in the element declaration, like:
 	// <div id="picture-frame" ontouchstart="touchStart(event,'picture-frame');"  ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
@@ -66,7 +66,7 @@
 			touchCancel(event);
 		}
 	}
-	
+
 	function touchEnd(event) {
 		event.preventDefault();
 		// check to see if more than one finger was used and that there is an ending coordinate
@@ -81,7 +81,7 @@
 				touchCancel(event); // reset the variables
 			} else {
 				touchCancel(event);
-			}	
+			}
 		} else {
 			touchCancel(event);
 		}
@@ -103,7 +103,7 @@
 		swipeDirection = null;
 		triggerElementID = null;
 	}
-	
+
 	function caluculateAngle() {
 		var X = startX-curX;
 		var Y = curY-startY;
@@ -112,7 +112,7 @@
 		swipeAngle = Math.round(r*180/Math.PI); //angle in degrees
 		if ( swipeAngle < 0 ) { swipeAngle =  360 - Math.abs(swipeAngle); }
 	}
-	
+
 	function determineSwipeDirection() {
 		if ( (swipeAngle <= 45) && (swipeAngle >= 0) ) {
 			swipeDirection = 'left';
@@ -126,7 +126,7 @@
 			swipeDirection = 'up';
 		}
 	}
-	
+
 	function processingRoutine() {
 		var swipedElement = document.getElementById(triggerElementID);
 		if ( swipeDirection == 'left' ) {
@@ -149,7 +149,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
-<%= render 'navbar'%>
+
 <body>
 
 <%= yield %>
