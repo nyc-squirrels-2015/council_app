@@ -16,6 +16,7 @@ steven.friends << missy
 missy.friends << sagar
 missy.friends << anna
 missy.friends << jay
+missy.friends << steven
 jay.friends << anna
 sagar.friends << jay
 
@@ -27,8 +28,41 @@ mcou = Council.create!(user:missy, council_name:"Missy's pals")
 mcou.members << sagar
 mcou.members << jay
 
+jcou = Council.create!(user:jay, council_name:"Apartment Council")
+jcou.members << missy
+jcou.memebers << anna
+
+acou = Council.create!(user:anna, council_name:"Spring Council")
+acou.members << missy
+acou.members << sagar
+
+scou = Council.create!(user:sagar, council_name:"Travel")
+scou.members << jay
+scou.members << steven
+
 q = missy.questions.create!(council: mcou, content:'What do you think of this dress?')
 q.answers.create!(user:sagar, like: true)
 
+hat =  steven.questions.create!(council: cou, content:'Do you like this hat?')
+hat.answers.create!(user:steven, like: true)
 
+restaurant =  steven.questions.create!(council: cou, content:'Do you like this restaurant?')
+restaurant.answers.create!(user:steven, like:true)
 
+park = steven.questions.create!(council: cou, content:'Is this a good park for a picnic?')
+park.answers.create!(user:steven, like:true)
+
+tech = steven.questions.create!(council: cou, content:"Should I buy this iphone?")
+tech.answers.create!(user:steven, like:false)
+
+destination =  sagar.questions.create!(council: scou, content:'Do you like this restaurant?')
+restaurant.answers.create!(user:steven, like:true)
+
+apartment = jay.questions.create!(council: jcou, content:"Should I rent this apartment?")
+apartment.answers.create!(user:jay, like:true)
+
+spring = anna.questions.create!(council: acou, content: "Is it spring yet?")
+spring.answers.create!(user:anna, like: true)
+
+cute = missy.questions.create!(council: mcou, content:"Is he cute?")
+cute.answers.create!(user: missy, like: true)
