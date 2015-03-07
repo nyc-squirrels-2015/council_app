@@ -3,8 +3,11 @@
   <%= form_for @question,:html => { :multipart => true } do |f| %>
     <li>
       <%= f.file_field :image, accept: 'image/*', capture: 'camera' %><br><br>
-      <%= f.label :council_id %>
-      <%= f.text_field :council_id %><br><br>
+      <select name="question[council_id]">
+        <% current_user.councils.each do |council| %>
+          <option value=<%=council.id%>><%= council.council_name %></option>
+        <% end %>
+      </select>
       <%= f.label :content %>
       <%= f.text_field :content %>
     </li>
