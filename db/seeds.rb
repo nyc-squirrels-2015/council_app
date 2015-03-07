@@ -16,6 +16,7 @@ steven.friends << missy
 missy.friends << sagar
 missy.friends << anna
 missy.friends << jay
+missy.friends << steven
 jay.friends << anna
 sagar.friends << jay
 
