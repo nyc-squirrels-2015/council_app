@@ -17,6 +17,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @questions = @user.questions
   end
 
   def edit
