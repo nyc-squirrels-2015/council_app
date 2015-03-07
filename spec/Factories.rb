@@ -15,7 +15,7 @@ FactoryGirl.define do
   factory :question do |f|
     f.content {Faker::Lorem.sentence}
     f.image {Faker::Avatar.image}
-    f.association :council
+    f.council_id 1
     f.association :user
   end
 
