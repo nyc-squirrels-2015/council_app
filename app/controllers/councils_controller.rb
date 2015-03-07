@@ -43,7 +43,7 @@ class CouncilsController < ApplicationController
 
   private
   def council_params
-   params.require(:council).permit(:council_name).merge(user_id: 1)
+   params.require(:council).permit(:council_name).merge(user_id: current_user.id)
   end
 
   def find_council id
