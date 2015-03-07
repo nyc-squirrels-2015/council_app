@@ -1,1 +1,10 @@
-<h1 class="welcome-user">Welcome, <%= @user.firstname %></h1>
+<h1 class="welcome-user">Hi, <%= @user.firstname %></h1>
+<button><%= link_to "Add Council", councils_path %></button>
+<button><%= link_to "Add Question", new_question_path %></button>
+
+<%= @questions.each do |question| %>
+	<h4> YOUR STATS </h4>
+	<h5> <%= question.last %> GREEN UP </h5>
+	<h5> <%= question.first %> GREEN UP </h5>
+	<h5> <%= question.second %> RED UP </h5>
+<% end %>
