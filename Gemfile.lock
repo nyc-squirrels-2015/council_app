@@ -38,6 +38,7 @@ GEM
       tzinfo (~> 1.1)
     arel (6.0.0)
     bcrypt (3.1.10)
+    bootstrap (0.0.1)
     builder (3.2.2)
     byebug (3.5.1)
       columnize (~> 0.8)
@@ -184,6 +185,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  bootstrap
   byebug
   coffee-rails (~> 4.1.0)
   factory_girl_rails
