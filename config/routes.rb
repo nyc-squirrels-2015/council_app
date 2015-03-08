@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :questions
   resources :council_memberships
-  resources :inboxs, only: [:index, :show]
+  resources :inboxs, only: [:index]
   resources :friendships, except: [:update]
 
   # The priority is based upon order of creation: first created -> highest priority.
