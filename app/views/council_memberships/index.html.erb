@@ -1,0 +1,4 @@
+<h1>My Councils</h1>
+<% @council_memberships.each do |membership| %>
+  <p><%= membership.council.council_name%></p>
+<% end %>
