@@ -6,6 +6,8 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find params[:id]
+    @action = question_answers_path(@question)
+    @answer = Answer.new
   end
 
   def new
