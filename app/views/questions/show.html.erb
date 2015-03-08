@@ -7,10 +7,13 @@
 <!-- TEMP IMAGE -->
 <br>
 <% if current_user == @question.user%>
-  <%= image_tag @question.image.url(:medium), :class=> 'vote-swipe' %>
+  <%= image_tag @question.image.url(:medium), :class=> 'vote-swipe', :data => { action: @action }%>
   <%= render 'answers/answers_count' %>
 <% end %>
 
 
 <span><%= link_to 'Answer This Question', new_question_answer_path(@question) %></span> | <span><%= link_to 'Delete', question_path(@question), :method => :delete %></span>
 
+<%= form_for [@question, @answer] do |f|  %>
+<%= f.check_box :like %>
+<% end %>
