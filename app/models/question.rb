@@ -7,8 +7,8 @@ class Question < ActiveRecord::Base
 
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   # accepts_nested_attributes_for :answers
-   validates :council_id, presence: true
-  validates :user_id, presence: true
+  validates :council_id, :user_id, :content, presence: true
+  
 
   def s3_credentials
     {bucket: "council-app", access_key_id: ENV["AWS_KEY"],secret_access_key: ENV["AWS_SECRET"] }
