@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :council_memberships
   resources :inboxs, only: [:index]
   resources :friendships, except: [:update]
+  get 'invite' => 'friendships#invite'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
