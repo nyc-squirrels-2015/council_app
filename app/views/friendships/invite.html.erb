@@ -1,0 +1,7 @@
+<ul>
+  <% @invites.each do |invite| %>
+      <li>
+        <%= link_to "#{invite.user.firstname} #{invite.user.lastname}", friendship_path(invite) %>
+      </li>
+  <% end %>
+</ul>
