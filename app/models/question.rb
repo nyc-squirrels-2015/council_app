@@ -17,7 +17,7 @@ class Question < ActiveRecord::Base
   def up_percentage
     unless self.answers.count.zero?
       up_votes = self.answers.where(like: true).count
-      ((up_votes.to_f / all_votes.to_f) * 100).round
+      ((up_votes.to_f / self.answers.where(like: true).count.to_f) * 100).round
     else
       up_votes = 0
     end
