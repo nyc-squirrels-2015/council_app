@@ -26,6 +26,11 @@ class FriendshipsController < ApplicationController
     redirect_to friendships_path
   end
 
+  def invite
+    @invites =Friendship.where(friend_id: current_user.id).where(status: false)
+
+  end
+
 
   private
 
