@@ -6,15 +6,11 @@
 <!-- order by created at limit 3 -->
 	<h4> YOUR STATS </h4>
 <% @questions.each do |question| %>
-  <% unless question.up_percentage.zero? %>
-    <% if question.up_percentage > 50 %>
-  	  <h5> <%= question.content %> |  <span class="votes green"><%= question.up_percentage %>%</span></h5>
-    <% elsif question.up_percentage < 50 %>
-      <h5> <%= question.content %> | <span class="votes red"><%= question.up_percentage %>% </span></h5>
-    <% else %>
-      <h5> <%= question.content %> | <span class="votes yellow">TIED!</span></h5>
-    <% end %>
+  <% if question.up_percentage > 50 %>
+	  <h5> <%= question.content %> |  <span class="votes green"><%= question.up_percentage %>%</span></h5>
+  <% elsif question.up_percentage < 50 %>
+    <h5> <%= question.content %> | <span class="votes red"><%= question.up_percentage %>% </span></h5>
   <% else %>
-    <h5> <%= question.content %> | <span class="votes yellow">No Reply!</span></h5>
+    <h5> <%= question.content %> | <span class="votes yellow">TIED!</span></h5>
   <% end %>
 <% end %>
