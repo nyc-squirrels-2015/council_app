@@ -1,9 +1,7 @@
 <div class="council_container">
   <h2> <%= @council.council_name %></h2>
-  <%= button_to "Add Friend",form_class: 'show_add', class:'btn_friend' %>
-  <div id="add_friend">
-    hey!!
-  </div>
+  <%= button_to "Add Member", new_council_membership_path, :method => "get", class:'btn_friend' %>
+
   <div id='council_member'>
     Council Member
   </div>
