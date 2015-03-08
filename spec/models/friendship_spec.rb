@@ -10,6 +10,11 @@ describe Friendship do
       it { should validate_presence_of :user_id }
   end
 
+  context "Association" do
+    it {should belong_to(:user)}
+    # it {should belong_to(:friend).through(:user)}
+  end
+
   it "Friendship status should be automatically initialize to be false" do
     expect(@friendship.status).to be false
   end

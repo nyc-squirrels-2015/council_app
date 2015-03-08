@@ -11,6 +11,13 @@ describe Council do
       it { should validate_presence_of :user_id }
   end
 
+  context "Association" do
+    it {should belong_to(:user)}
+    it{should have_many(:council_memberships)}
+    # it{should has_many(:members).through(:council_memberships)}
+    it{should have_many(:questions)}
+  end
+
   it "council_name should be automatically titleized before save" do
     expect(@council.council_name).not_to be nil
   end
