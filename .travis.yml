@@ -3,3 +3,5 @@ rvm:
   - 2.1.4
 before_script:
   - psql -c 'create database council_app_test' -U postgres
+secure: "ilnZvOMnSEe607f8EPE3Ldd4nXJA/PcVc6bGdSyJkgb7uFkn1LHypaM61RgaIQ00htRgstF7fVHgNh6VVXr60JUB4M9kLFTH28pLN+3pjQBgpU6cyBIHTiH1LCW+YR8cXUb0OVFaTzES+2F2yTlfpdTNomqOmr6rSBjbo7NNoNk="
+secure: "sITmp0PGwSZaYkz7LMN9ouwisi2Ebvv6wyLk080/NBYbi9WlNn38mFTGxoUA8IyIbepZnDlJsM+n1gQ8thleVX00iNk+tINUtSIovjghrsUfNvFo7rdm6bimPr5z9ke2L4JfAOd2IQHX4GJQ7Bcgkf/nE5gCfsWbuD2oSUCsgog="
