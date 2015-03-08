@@ -2,10 +2,15 @@ class Question < ActiveRecord::Base
   belongs_to :user
   belongs_to :council
   has_many :answers
-  has_attached_file :image , :styles => { :medium => "500x600#"}
+  has_attached_file :image , :styles => { :medium => "500x600#"}, :storage => :s3,
+     :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
 
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   # accepts_nested_attributes_for :answers
    validates :council_id, presence: true
   validates :user_id, presence: true
+
+def s3_credentials
+    {bucket: "council-app", access_key_id: ENV["AWS_KEY"],secret_access_key: ENV["AWS_SECRET"] }
+  end
 end
