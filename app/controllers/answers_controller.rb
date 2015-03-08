@@ -13,16 +13,12 @@ class AnswersController < ApplicationController
 	def create
     p "*" * 50
     p params
-    p "*" * 50
-    p answer: params
-    p "*" * 100
-    p answer_params
 
     @question = Question.find(params[:question_id])
     @question.answers.build(answer_params)
     if @question.save
       flash.notice = "Thanks for voting!"
-      redirect_to root_path
+      redirect_to inboxs_path
     end
 
 	# 	@answer = Answer.new(answer_params)
