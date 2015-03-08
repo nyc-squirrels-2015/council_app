@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-	
+
 	def index
 		 @answers = Answer.all
 	end
@@ -9,25 +9,43 @@ class AnswersController < ApplicationController
 		@question = Question.find(params[:question_id])
 		@user = current_user
 	end
-	
-	def create
-		@answer = Answer.new(answer_params)
-		@answer.question = Question.find(params[:question_id])
-		@answer.user = current_user
 
-		
-    if @answer.save
-      redirect_to question_path(@answer.question)
-    else
-    	#flash error
-      render :new
-  	end
-	end
+	def create
+    p "*" * 50
+    p params
+    p "*" * 50
+    p answer: params
+    p "*" * 100
+    p answer_params
+
+    @question = Question.find(params[:question_id])
+    @question.answers.build(answer_params)
+    if @question.save
+      flash.notice = "Thanks for voting!"
+      redirect_to root_path
+    end
+
+	# 	@answer = Answer.new(answer_params)
+
+ #    if @answer.save
+ #      if request.xhr?
+ #        (article.votes.count).to_json
+ #        respond_to do |format|
+ #          format.js {render json: article.votes.count}
+ #        end
+ #      redirect_to question_path(@answer.question)
+ #    else
+ #      render :new
+ #  	end
+	# end
+end
+
+
 
 
  private
 
 def answer_params
- 	params.require(:answer).permit(:question_id, :user_id, :like)
- end 
+ 	params.require(:answer).permit(:like).merge(user_id: current_user.id)
+ end
 end
