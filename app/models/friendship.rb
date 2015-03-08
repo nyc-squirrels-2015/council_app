@@ -4,6 +4,8 @@ class Friendship < ActiveRecord::Base
 
   after_save :make_mirror_if_needed
 
+  validates :user_id, :friend_id, presence: true
+
   private
 
   def make_mirror_if_needed
