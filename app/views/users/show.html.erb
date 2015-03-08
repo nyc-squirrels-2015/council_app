@@ -1,14 +1,16 @@
 <h1 class="welcome-user">Hi, <%= @user.firstname %></h1>
-<button><%= link_to "Add Council", councils_path %></button>
-<button><%= link_to "Add Question", new_question_path %></button>
+<%= button_to "Add Council", councils_path, method: 'get' %><br>
+<%= button_to "Add Question", new_question_path, method: 'get' %></button>
 
 
 <!-- order by created at limit 3 -->
 	<h4> YOUR STATS </h4>
-<%= @questions.each do |question| %>
-	<h5> <%= question.content %> GREEN UP </h5>
-	<h5>is this here?</h5>
+<% @questions.each do |question| %>
+  <% if question.up_percentage > 50 %>
+	  <h5> <%= question.content %> |  <span class="votes green"><%= question.up_percentage %>%</span></h5>
+  <% elsif question.up_percentage < 50 %>
+    <h5> <%= question.content %> | <span class="votes red"><%= question.up_percentage %>% </span></h5>
+  <% else %>
+    <h5> <%= question.content %> | <span class="votes yellow">TIED!</span></h5>
+  <% end %>
 <% end %>
-
-<!-- 	<h5>is this here?</h5>
- -->
