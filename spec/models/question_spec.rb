@@ -11,6 +11,13 @@ describe Question do
       it { should validate_presence_of :user_id }
   end
 
+  context "Association" do
+    it {should belong_to(:user)}
+    it{should belong_to(:council)}
+    # it{should has_many(:members).through(:council_memberships)}
+    it{should have_many(:answers)}
+  end
+
   it "council_id should be automatically titleized before save" do
     expect(@question.council_id).not_to be nil
   end
