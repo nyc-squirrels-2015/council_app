@@ -5,16 +5,16 @@
 </p>
 
 <!-- TEMP IMAGE -->
-<%= image_tag @question.image.url(:medium) %>
 <br>
 <% if current_user == @question.user%>
+  <%= image_tag @question.image.url(:medium) %>
   <%= render 'answers/answers_count' %>
 <% end %>
 
 
 <span>
-<%= link_to 'answer this question', new_question_answer_path(@question) %>
+<%= link_to 'Answer This Question', new_question_answer_path(@question) %>
 </span>
 
-<span><%= link_to 'delete', question_path(@question), :method => :delete %></span>
+ | <span><%= link_to 'Delete', question_path(@question), :method => :delete %></span>
 
