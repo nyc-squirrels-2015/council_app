@@ -20,21 +20,7 @@ class AnswersController < ApplicationController
       flash.notice = "Thanks for voting!"
       redirect_to inboxs_path
     end
-
-	# 	@answer = Answer.new(answer_params)
-
- #    if @answer.save
- #      if request.xhr?
- #        (article.votes.count).to_json
- #        respond_to do |format|
- #          format.js {render json: article.votes.count}
- #        end
- #      redirect_to question_path(@answer.question)
- #    else
- #      render :new
- #  	end
-	# end
-end
+  end
 
 
 
