@@ -30,6 +30,13 @@
      </div><!-- /.container-fluid -->
   </nav>
 <body id="main">
+<%if flash[:notice] %>
+<div id="flash_notice">
+  <%= flash[:notice] %>
+</div>
+<% end %>
+
+
 
 <%= yield %>
 
