@@ -5,13 +5,19 @@ class CouncilMembershipsController < ApplicationController
 	end
 
 	def new	
-		@council_memberships
+		@council_memberships = CouncilMemberships.new
 	end
 
-	def create	
+	def create
+		@council_memberships = CouncilMemberships.where(council_params).first_or_create
+    if @council
+      redirect_to @council
+    else
+      render :new
+    end	
 	end
 
-	def 	
-	end
+private
+
 
 end
