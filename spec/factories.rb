@@ -12,6 +12,13 @@ FactoryGirl.define do
     f.association :user
   end
 
+  factory :council_member do |f|
+    f.user :user
+    f.council :council
+  end
+
+
+
   factory :question do |f|
     f.content {Faker::Lorem.sentence}
     f.image {Faker::Avatar.image}

@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 describe InboxsController do
-  let(:user) {FactoryGirl.create :user}
-  let(:council) { FactoryGirl.create :council }
 
   before do
+    user = FactoryGirl.create :user
+    council = FactoryGirl.create :council
+    council.members << user
+
     stub_current_user user
   end
 
