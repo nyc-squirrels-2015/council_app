@@ -10,7 +10,13 @@ class Question < ActiveRecord::Base
    validates :council_id, presence: true
   validates :user_id, presence: true
 
-def s3_credentials
+  def s3_credentials
     {bucket: "council-app", access_key_id: ENV["AWS_KEY"],secret_access_key: ENV["AWS_SECRET"] }
+  end
+
+  def up_percentage
+    all_votes = self.answers.count
+    up_votes = self.answers.where(like: true).count
+    ((up_votes.to_f / all_votes.to_f) * 100).round
   end
 end
