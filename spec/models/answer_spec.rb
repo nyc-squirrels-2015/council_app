@@ -8,6 +8,7 @@ describe Answer do
   context "validations" do
       it { should validate_presence_of :question_id}
       it { should validate_presence_of :user_id }
+      it { should validate_inclusion_of(:like).in_array([true, false]) }
   end
 
   context "Association" do

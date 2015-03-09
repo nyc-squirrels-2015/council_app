@@ -5,7 +5,6 @@ describe Question do
     @question = Question.new(council_id: 1, user_id:1, content: "What you think of this?")
   end
 
-
   context "validations" do
       it { should validate_presence_of :council_id}
       it { should validate_presence_of :user_id }
@@ -14,7 +13,6 @@ describe Question do
   context "Association" do
     it {should belong_to(:user)}
     it{should belong_to(:council)}
-    # it{should have_many(:members).through(:council_memberships)}
     it{should have_many(:answers)}
   end
 
@@ -28,5 +26,9 @@ describe Question do
 
   it "content should be automatically titleized before save" do
     expect(@question.content).not_to be nil
+  end
+
+  it "should have access to AWS keys" do
+    expect(@question.s3_credentials[:access_key_id] && @question.s3_credentials[:secret_access_key]).to be_truthy
   end
 end
