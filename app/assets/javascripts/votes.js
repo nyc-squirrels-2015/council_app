@@ -72,6 +72,7 @@ $( document ).ready(function() {
         var reader = new FileReader();
         reader.onload = function (e) {
             $('#blah').attr('src', e.target.result);
+            $('#blah').show();
         }
 
         reader.readAsDataURL(input.files[0]);
@@ -79,7 +80,6 @@ $( document ).ready(function() {
   }
 
   $("#question_image").change(function(){
-      console.log("Change image")
       readURL(this);
   });
 });
