@@ -13,6 +13,7 @@ class FriendshipsController < ApplicationController
   def new
     @user = current_user
     @friendship = Friendship.new
+    @invites = Friendship.where(friend_id: current_user.id).where(status: false)
   end
 
 
