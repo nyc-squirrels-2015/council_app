@@ -16,13 +16,15 @@ $( document ).ready(function() {
 
   $('button#login-btn').on('click', function(event){
     event.preventDefault();
-    $('#login-form').show();
+    $('#login-form').toggle();
+    $('#welcome-text').hide();
     $('#sign-up-form').hide();
   });
 
   $('button#sign-up-btn').on('click', function(event){
     event.preventDefault();
-    $('#sign-up-form').show();
+    $('#sign-up-form').toggle();
+    $('#welcome-text').hide();
     $('#login-form').hide();
   });
 });
