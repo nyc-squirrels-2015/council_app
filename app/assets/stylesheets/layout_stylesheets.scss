@@ -4,6 +4,9 @@
 
 .logo-title {
   font-family: 'Pacifico', cursive;
+  font-size: 35px;
+  position: relative;
+  vertical-align: middle;
 }
 
 .votes {
@@ -32,4 +35,8 @@
 .nav > li {
   position: relative;
   display: inline-block;
+}
+
+.glyphicon {
+  font-size: 30px;
 }
