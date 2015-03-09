@@ -3,27 +3,26 @@
 
 <%= button_to "Add Question", new_question_path, method: 'get' %></button>
 
+  <div class="prof_container">
+    <% @questions.each do |question| %>
+    <div class="image">
+     <%= image_tag question.image(:small) %>
+      <span class="answer">
+        <% if question.answers.count == 0 %>
+          <h5 class="content"><span> <%= question.content %></span><span class="votes blue">No reply</span></h5>
 
-<% @questions.each do |question| %>
-<div class="chunk">
-  <span class="answer">
-  <% if question.answers.count == 0 %>
-    <h5> <%= question.content %><span class="votes blue">No reply</span></h5>
+        <% else %>
 
-  <% else %>
-
-    <% if question.up_percentage > 50 %>
-     <h5> <%= question.content %> <span class="votes green">DO IT!</span></h5>
-    <% elsif question.up_percentage < 50 %>
-      <h5> <%= question.content %><span class="votes red">DON'T DO IT!</span></h5>
-    <% else %>
-      <h5> <%= question.content %><span class="votes yellow">TIED!</span></h5>
+          <% if question.up_percentage > 50 %>
+           <h5 class="content"><span class="votes green">  √  </span> <span> <%= question.content %></span> </h5>
+          <% elsif question.up_percentage < 50 %>
+            <h5 class="content"><span class="votes red">  X  </span> <span> <%= question.content %></span>h5>
+          <% else %>
+            <h5 class="content"><span class="votes yellow">TIED!</span> <span> <%= question.content %></span></h5>
+          <% end %>
+        <% end %>
+      </span>
     <% end %>
-  <% end %>
-  </span>
-  <span class="image">
-    <%= image_tag question.image(:small) %>
-  </span>
-<% end %>
-</div>
+    </div>
+  </div>
 </div>
