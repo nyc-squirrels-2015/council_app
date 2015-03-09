@@ -2,7 +2,7 @@
 <%= @friendship.user.firstname %> <%= @friendship.user.lastname %>
 wants to be friends with
 <%= @friendship.friend.firstname %> <%= @friendship.friend.lastname %>
-<%= button_to 'Confirm', '' %>
+<%= button_to 'Confirm', confirm_path(@friendship.id), method: :put %>
 <% else %>
 <h5>Invite Send to</h5>
 <%= @friendship.friend.firstname %> <%= @friendship.friend.lastname %>
