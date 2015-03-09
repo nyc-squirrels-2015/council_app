@@ -1,5 +1,9 @@
 
-<h2> Your Councils </h2>
+<h2 class="title"> <%= current_user.firstname %>'s Councils </h2>
+
+<div class="btn" id="+council">
+  <%= link_to "Add A Council", "?type=1", :class => "btn" %>
+</div>
 
 <% @councils.each do |council| %>
   <p><%= link_to council.council_name,council_path(council) %></p>
