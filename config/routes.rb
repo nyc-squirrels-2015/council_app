@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :inboxs, only: [:index]
   resources :friendships, except: [:update]
   get 'invite' => 'friendships#invite'
+  match '/confirm/:id' => 'friendships#confirm', as: :confirm, via: :put
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
