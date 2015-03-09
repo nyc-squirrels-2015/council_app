@@ -2,6 +2,10 @@
 
 
 
-<%= button_to 'Login', login_path, :class => 'button', :method => :get %>
-<%= button_to 'Signup', new_user_path, :class => 'button', :method => :get %>
-
+<button id="login-btn">Login</button>
+<button id="sign-up-btn">Sign Up</button>
+<div id="login-form">
+  <%= render partial: 'sessions/new', locals: {user: @user} %>
+</div>
+<div id="sign-up-form">
+<%= render partial: 'users/new', locals: {user: @user} %></div>

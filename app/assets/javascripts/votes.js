@@ -13,4 +13,16 @@ $( document ).ready(function() {
       $('#new_answer').submit();
     }
   });
+
+  $('button#login-btn').on('click', function(event){
+    event.preventDefault();
+    $('#login-form').show();
+    $('#sign-up-form').hide();
+  });
+
+  $('button#sign-up-btn').on('click', function(event){
+    event.preventDefault();
+    $('#sign-up-form').show();
+    $('#login-form').hide();
+  });
 });
