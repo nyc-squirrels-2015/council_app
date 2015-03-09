@@ -11,8 +11,6 @@ class AnswersController < ApplicationController
 	end
 
 	def create
-    p "*" * 50
-    p params
 
     @question = Question.find(params[:question_id])
     @question.answers.build(answer_params)
