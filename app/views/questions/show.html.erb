@@ -1,18 +1,21 @@
-<h1><%= @question.content %> </h1>
-<h3>From <%= @question.council.council_name %></h3>
-<p>
-  <%= @question.content  %>
-</p>
+<div class="page-center">
+  <h1><%= @question.content %> </h1>
+  <h3>From <%= @question.council.council_name %></h3>
+  <p>
+    <%= @question.content  %>
+  </p>
 
-<!-- TEMP IMAGE -->
-<br>
-  <%= image_tag @question.image.url(:medium), :class=> 'vote-swipe', :data => { action: @action }%>
+  <!-- TEMP IMAGE -->
   <br>
-<% if current_user == @question.user%>
-  <%= render 'answers/answers_count' %><br>
-  <%= link_to 'Delete', question_path(@question), :method => :delete %></span>
-<% end %>
+    <%= image_tag @question.image.url(:medium), :class=> 'vote-swipe', :data => { action: @action }%>
+    <br>
+  <% if current_user == @question.user%>
+    <h3>Votes</h3>
+    <%= render 'answers/answers_count' %><br>
+    <%= link_to 'Delete', question_path(@question), :method => :delete %></span>
+  <% end %>
 
-<%= form_for [@question, @answer] do |f|  %>
-<%= f.check_box :like %>
-<% end %>
+  <%= form_for [@question, @answer] do |f|  %>
+  <%= f.check_box :like %>
+  <% end %>
+</div>
