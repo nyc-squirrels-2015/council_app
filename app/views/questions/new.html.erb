@@ -3,7 +3,7 @@
 <div class="page-center">
     <%= form_for @question,:html => { :multipart => true, :class => "margin-auto" }  do |f| %>
         <%= f.file_field :image, accept: 'image/*', capture: 'camera' %><br>
-        <select name="question[council_id]">
+        Send to: <select name="question[council_id]">
           <% current_user.councils.each do |council| %>
             <option value=<%=council.id%>><%= council.council_name %></option>
           <% end %>
