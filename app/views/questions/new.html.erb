@@ -1,6 +1,6 @@
 <h1 class="center">Would you?</h1>
 <img class="page-center" src="#" id="blah">
-<div class="page-center">
+<div class="center page-center">
     <%= form_for @question,:html => { :multipart => true, :class => "margin-auto" }  do |f| %>
         <%= f.file_field :image, accept: 'image/*', capture: 'camera' %><br>
         Send to: <select name="question[council_id]">
