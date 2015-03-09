@@ -40,7 +40,7 @@ scou = Council.create!(user:sagar, council_name:"Travel")
 scou.members << jay
 scou.members << steven
 
-dinner = missy.questions.create!(council: mcou, content:'What do you think of this dinner?')
+dinner = missy.questions.create!(council: mcou, content:'Good dinner?')
 dinner.image = File.open("/Users/melissawimberly/Desktop/food.jpg")
 dinner.save!
 dinner.answers.create!(user:sagar, like: true)
@@ -55,7 +55,7 @@ restaurant.image = File.open("/Users/melissawimberly/Desktop/store.JPG")
 restaurant.save!
 restaurant.answers.create!(user:steven, like:true)
 
-park = steven.questions.create!(council: cou, content:'Is this a good park for a picnic?')
+park = steven.questions.create!(council: cou, content:'picnic time?')
 park.image = File.open("/Users/melissawimberly/Desktop/park.JPG")
 park.save!
 park.answers.create!(user:steven, like:true)
