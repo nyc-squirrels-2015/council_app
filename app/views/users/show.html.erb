@@ -5,8 +5,8 @@
 
 
 <% @questions.each do |question| %>
-    <%= image_tag question.image(:thumb) %>
-
+<div class="chunk">
+  <span class="answer">
   <% if question.answers.count == 0 %>
     <h5> <%= question.content %><span class="votes blue">No reply</span></h5>
 
@@ -20,7 +20,10 @@
       <h5> <%= question.content %><span class="votes yellow">TIED!</span></h5>
     <% end %>
   <% end %>
-
+  </span>
+  <span class="image">
+    <%= image_tag question.image(:medium) %>
+  </span>
 <% end %>
-
+</div>
 </div>
