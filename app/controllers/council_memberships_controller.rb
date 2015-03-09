@@ -13,6 +13,7 @@ class CouncilMembershipsController < ApplicationController
     if @council_membership.save
       redirect_to councils_path
     else
+      flash[:error] = 'Field cannot be left blank.'
       render :new
     end
 	end

@@ -10,9 +10,10 @@ class CouncilsController < ApplicationController
 
   def create
     @council = Council.where(council_params).first_or_create
-    if @council
+    if @council.save
       redirect_to @council
     else
+      flash[:error] = 'Field cannot be left blank.'
       render :new
     end
   end
