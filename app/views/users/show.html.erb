@@ -1,20 +1,27 @@
-<h1 class="welcome-user">Hi, <%= @user.firstname %></h1>
+<div class="prof_page">
+<h1 class="welcome-user">Hi <%= @user.firstname + '!'%></h1>
 <%= button_to "Add Council", councils_path, method: 'get' %><br>
 <%= button_to "Add Question", new_question_path, method: 'get' %></button>
 
 
 <!-- order by created at limit 3 -->
-	<h4> YOUR STATS </h4>
+	<!-- <h4> YOUR STATS </h4> -->
+
+
 <% @questions.each do |question| %>
   <% unless question.up_percentage.zero? %>
     <% if question.up_percentage > 50 %>
-     <h5> <%= question.content %> |  <span class="votes green"><%= question.up_percentage %>%</span></h5>
+     <h5> <%= question.content %> <span class="votes green"><%= question.up_percentage %>%</span></h5>
+   
     <% elsif question.up_percentage < 50 %>
-      <h5> <%= question.content %> | <span class="votes red"><%= question.up_percentage %>% </span></h5>
+      <h5> <%= question.content %><span class="votes red"><%= question.up_percentage %>% </span></h5>
     <% else %>
-      <h5> <%= question.content %> | <span class="votes yellow">TIED!</span></h5>
+      <h5> <%= question.content %><span class="votes yellow">TIED!</span></h5>
+   
     <% end %>
 <% else %>
-    <h5> <%= question.content %> | <span class="votes yellow">No reply</span></h5>
+    <h5> <%= question.content %><span class="votes yellow">No reply</span></h5>
   <% end %>
 <% end %>
+
+</div>

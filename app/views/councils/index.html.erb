@@ -1,3 +1,6 @@
+
+<h2> Your Councils </h2>
+
 <% @councils.each do |council| %>
   <p><%= link_to council.council_name,council_path(council) %></p>
 <% end %>
