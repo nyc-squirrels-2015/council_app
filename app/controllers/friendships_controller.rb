@@ -31,6 +31,19 @@ class FriendshipsController < ApplicationController
 
   end
 
+  def confirm
+
+    @friend = Friendship.find(params[:id])
+    @friend.status = true
+    p @friend
+    if @friend.status
+
+    else
+
+    end
+
+  end
+
 
   private
 
