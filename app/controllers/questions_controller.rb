@@ -18,6 +18,7 @@ class QuestionsController < ApplicationController
     params[:question][:user_id] = current_user.id
     @question = Question.new question_params
     if @question.save
+      send_notification(@question)
       redirect_to question_path(@question)
     else
       flash[:error] = 'Field cannot be left blank.'
@@ -39,5 +40,10 @@ class QuestionsController < ApplicationController
 private
   def question_params
     params.require(:question).permit(:user_id, :council_id, :content, :image)
+  end
+
+  def send_notification question
+    client = Rushover::Client.new(ENV["RUSHOVER_CLIENT"])
+    resp = client.notify(ENV["RUSHOVER_USER"], "#{question.content[0,20]}...", :priority => 1, :title => "New Question")
   end
 end
