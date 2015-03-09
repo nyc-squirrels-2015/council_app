@@ -35,11 +35,10 @@ class FriendshipsController < ApplicationController
 
     @friend = Friendship.find(params[:id])
     @friend.status = true
-    p @friend
-    if @friend.status
-
+    if @friend.save
+      redirect_to invite_path
     else
-
+      redirect_to frindship_path
     end
 
   end
