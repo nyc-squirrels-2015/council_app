@@ -9,19 +9,21 @@
 
 
 <% @questions.each do |question| %>
-  <% unless question.up_percentage.zero? %>
+
+  <% if question.answers.count == 0 %>
+    <h5> <%= question.content %><span class="votes blue">No reply</span></h5>
+
+  <% else %>
+
     <% if question.up_percentage > 50 %>
-     <h5> <%= question.content %> <span class="votes green"><%= question.up_percentage %>%</span></h5>
-   
+     <h5> <%= question.content %> <span class="votes green">DO IT!</span></h5>
     <% elsif question.up_percentage < 50 %>
-      <h5> <%= question.content %><span class="votes red"><%= question.up_percentage %>% </span></h5>
+      <h5> <%= question.content %><span class="votes red">DON'T DO IT!</span></h5>
     <% else %>
       <h5> <%= question.content %><span class="votes yellow">TIED!</span></h5>
-   
     <% end %>
-<% else %>
-    <h5> <%= question.content %><span class="votes yellow">No reply</span></h5>
   <% end %>
+
 <% end %>
 
 </div>
