@@ -9,8 +9,7 @@ class Question < ActiveRecord::Base
   # accepts_nested_attributes_for :answers
   validates :council_id, :user_id, :content, presence: true
 
-
-  def s3_credentials
+  def s3_credentials # SHOULD BE A CLASS METHOD
     {bucket: "council-app", access_key_id: ENV["AWS_KEY"],secret_access_key: ENV["AWS_SECRET"] }
   end
 
