@@ -7,6 +7,7 @@ class FriendshipsController < ApplicationController
   def create
 
      @friendship = Friendship.create(user_id: current_user.id, friend_id: find_friend_id(params[:email]))
+     send_notification(@friendship.user.firstname, "Invite for friendship")
      redirect_to friendship_path(@friendship)
   end
 

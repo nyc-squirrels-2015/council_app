@@ -1,5 +1,4 @@
 class CouncilsController < ApplicationController
-
   def index
     @councils = Council.where(user_id: current_user.id)
   end

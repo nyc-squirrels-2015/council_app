@@ -11,6 +11,7 @@ class CouncilMembershipsController < ApplicationController
 	def create
 		@council_membership = CouncilMembership.where(council_membership_params).first_or_create
     if @council_membership.save
+      send_notification("#{current_user.firstname}'s you to member #{@council_membership.council.council_name}", 'Council' )
       redirect_to councils_path
     else
       flash[:error] = 'Field cannot be left blank.'
@@ -24,8 +25,3 @@ private
   end
 
 end
-
-# class CouncilMembership < ActiveRecord::Base
-#   belongs_to :member, class_name: 'User', foreign_key: 'user_id'
-#   belongs_to :council
-# end

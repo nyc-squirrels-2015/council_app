@@ -49,5 +49,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def send_notification(option, content)
+    client = Rushover::Client.new(ENV["RUSHOVER_CLIENT"])
+    resp = client.notify(ENV["RUSHOVER_USER"], "#{option[0,20]}...", :priority => 1, :title => content)
+  end
+
 end
 
