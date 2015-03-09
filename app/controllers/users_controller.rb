@@ -12,6 +12,7 @@ class UsersController < ApplicationController
       set_session
       redirect_to user_path(@user)
     else
+      flash[:error] = 'Field cannot be left blank.'
       render :new
     end
   end
@@ -29,6 +30,7 @@ class UsersController < ApplicationController
     if @user.update_attributes user_params
       redirect_to user_path(@user)
     else
+      flash[:error] = 'Field cannot be left blank.'
       render :edit
     end
   end
