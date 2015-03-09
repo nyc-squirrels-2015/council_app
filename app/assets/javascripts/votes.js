@@ -66,4 +66,20 @@ $( document ).ready(function() {
     $('#welcome-text').hide();
     $('#login-form').hide();
   });
+
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#blah').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#question_image").change(function(){
+      console.log("Change image")
+      readURL(this);
+  });
 });

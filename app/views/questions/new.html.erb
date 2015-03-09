@@ -1,18 +1,14 @@
-<h1>Create a new question</h1>
-<ul>
-  <%= form_for @question,:html => { :multipart => true } do |f| %>
-    <li>
-      <%= f.file_field :image, accept: 'image/*', capture: 'camera' %><br><br>
-      <select name="question[council_id]">
-        <% current_user.councils.each do |council| %>
-          <option value=<%=council.id%>><%= council.council_name %></option>
-        <% end %>
-      </select>
-      <%= f.label :content %>
-      <%= f.text_field :content %>
-    </li>
-    <li>
-      <%= f.submit %>
-    </li>
-  <% end %>
-</ul>
+<h1 class="center">Would you?</h1>
+<img class="page-center" src="#" id="blah">
+<div class="page-center">
+    <%= form_for @question,:html => { :multipart => true, :class => "margin-auto" }  do |f| %>
+        <%= f.file_field :image, accept: 'image/*', capture: 'camera' %><br>
+        <select name="question[council_id]">
+          <% current_user.councils.each do |council| %>
+            <option value=<%=council.id%>><%= council.council_name %></option>
+          <% end %>
+        </select><br>
+        <%= f.text_field :content, :placeholder => "Content"%><br>
+        <%= f.submit "Send" %>
+    <% end %>
+</div>
