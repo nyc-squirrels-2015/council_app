@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
         format.html { redirect_to @user }
         format.json { render json: :user, status: :logged, location: @user }
       else
+
         format.html { redirect_to login_path }
         format.json { render json: @user.errors }
       end
