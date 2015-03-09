@@ -14,7 +14,7 @@ describe Question do
   context "Association" do
     it {should belong_to(:user)}
     it{should belong_to(:council)}
-    # it{should has_many(:members).through(:council_memberships)}
+    # it{should have_many(:members).through(:council_memberships)}
     it{should have_many(:answers)}
   end
 
