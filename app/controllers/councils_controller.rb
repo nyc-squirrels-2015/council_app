@@ -8,10 +8,15 @@ class CouncilsController < ApplicationController
   end
 
   def create
+
     @council = Council.where(council_params).first_or_create
     if @council.save
+      if request.xhr?
+        render :json => @council
+      else
       flash[:notice] = 'Added to list'
       redirect_to councils_path
+      end
     else
       flash[:error] = 'Field cannot be left blank.'
       render :new
