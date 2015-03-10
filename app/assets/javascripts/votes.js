@@ -82,4 +82,24 @@ $( document ).ready(function() {
   $("#question_image").change(function(){
       readURL(this);
   });
+  $('#council_form form').on('submit',function(event){
+    event.preventDefault();
+    var url= $(this).attr('action');
+    var data = $(this).serialize();
+    $.ajax({
+      type:"post",
+      url: url,
+      data: data,
+      success: function(response){
+        debugger;
+        console.log(response)
+        $( "#councils_list" ).prepend( "<li><a href=/councils/"+response.id+ ">" + response.council_name +"</a></li>" );
+      },
+      error: function(response){
+        console.log("error")
+      }
+    })
+
+  });
+
 });
