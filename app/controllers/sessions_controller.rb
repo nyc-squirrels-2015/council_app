@@ -10,13 +10,10 @@ class SessionsController < ApplicationController
     respond_to do |format|
       if @user
         set_session
-        # session[:user]
         format.html { redirect_to @user }
-        format.json { render json: :user, status: :logged, location: @user }
       else
-
-        format.html { redirect_to login_path }
-        format.json { render json: @user.errors }
+        flash[:error] = "Try logging in again."
+        format.html { redirect_to root_path }
       end
     end
   end
