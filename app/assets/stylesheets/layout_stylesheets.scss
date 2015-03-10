@@ -104,7 +104,6 @@
 
 
 table{
-
   text-align: center;
 }
 
@@ -118,9 +117,6 @@ th{
   text-align: center;
 }
 
-#questions-list{
-
-}
 
 #welcome-text {
   text-align: center;
@@ -186,9 +182,27 @@ th{
   padding: 5px 10px;
 }
 
-.btn btn-lg btn-success{
+.btn.btn-lg.btn-success{
   position: fixed;
-  float: right;
+  right:0;
+  bottom:0;
+}
+
+.btn.btn-logo{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 60px;
+  width: 60px;
+  background-image: url("/council-logo2.png");
+  background-size: 60px 60px;
+
+}
+
+.btn.btn-logo  img {
+  width: 20px;
+  height: 20px;
+  border: thin solid blue;
 }
 
 .answer{
@@ -199,9 +213,10 @@ th{
 
 h5 span{
   color: white;
-  font: bold 20px/40px Helvetica, Sans-Serif; 
+  font: bold 20px/50px Helvetica, Sans-Serif; 
   letter-spacing: -1px;
 }
+
 image_tag{
   z-index: -1; 
 }
@@ -218,10 +233,14 @@ image_tag{
 
 .prof_container{
   bottom-margin: 10px;
+  width: 100%;
 }
 
 img {
   border: 0;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   margin-top: 20px;
 }
+
+
+
