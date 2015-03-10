@@ -58,6 +58,8 @@ $( document ).ready(function() {
     $('#login-form').toggle();
     $('#welcome-text').hide();
     $('#sign-up-form').hide();
+    $('button#login-btn').hide();
+    $('button#sign-up-btn').hide();
   });
 
   $('button#sign-up-btn').on('click', function(event){
@@ -65,6 +67,8 @@ $( document ).ready(function() {
     $('#sign-up-form').toggle();
     $('#welcome-text').hide();
     $('#login-form').hide();
+    $('button#login-btn').hide();
+    $('button#sign-up-btn').hide();
   });
 
   function readURL(input) {

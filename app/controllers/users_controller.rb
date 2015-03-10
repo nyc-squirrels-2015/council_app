@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
     else
       flash[:error] = 'Field cannot be left blank.'
-      render :new
+      redirect_to root_path
     end
   end
 

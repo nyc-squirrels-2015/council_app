@@ -15,6 +15,7 @@
 
 </head>
 <body>
+
   <div class='container'>
     <div id="rotating-item-wrapper">
      <%= image_tag("hair.jpg", class: "rotating-item")%>
@@ -22,7 +23,11 @@
      <%= image_tag("skateboard.jpg", class: "rotating-item")%>
      <%= image_tag("travel.jpg", class: "rotating-item")%>
     </div>
+
     <div class="viewport-center">
+      <% if flash[:error] %>
+        <div class="center welcome_flash_error"><%= flash[:error] %></div>
+      <% end %>
       <h3 id="welcome-text">Welcome<br> to<br><span class="logo-title large">Council</span></h3>
       <!-- this text will only appear when form is toggle display: none -->
 
@@ -33,7 +38,7 @@
         <%= render partial: 'users/new', locals: {user: @user} %>
       </div>
 
-      <div class="center">
+      <div class="center welcome-btns">
         <button id="login-btn">Login</button>
         <button id="sign-up-btn">Sign Up</button>
       </div>
