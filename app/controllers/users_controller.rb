@@ -19,7 +19,18 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @questions = @user.questions
+    @questions = []
+    
+    @user.questions.each do |question|
+      @questions << question
+    end
+
+    @user.councils.each do |council|
+      council.questions.each do |question|
+        @questions << question
+      end
+    end
+    @questions = @questions.sort_by(&:created_at)
   end
 
   def edit
