@@ -1,9 +1,11 @@
 
 <h2 class="title"> <%= current_user.firstname %>'s Councils </h2>
-<div>
+<div id='council_form'>
 <%= render partial: 'form' , locals: {council: Council.new}%>
 </div>
+<ul id='councils_list'>
 
 <% @councils.each do |council| %>
-  <p><%= link_to council.council_name,council_path(council) %></p>
+  <li><%= link_to council.council_name,council_path(council) %></li>
 <% end %>
+</ul>
