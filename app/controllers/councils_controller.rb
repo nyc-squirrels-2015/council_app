@@ -1,6 +1,6 @@
 class CouncilsController < ApplicationController
   def index
-    @councils = Council.where(user_id: current_user.id)
+    @councils = Council.where(user_id: current_user.id).order('created_at DESC')
   end
 
   def new
