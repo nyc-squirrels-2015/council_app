@@ -76,7 +76,7 @@ $( document ).ready(function() {
         var reader = new FileReader();
         reader.onload = function (e) {
             $('#blah').attr('src', e.target.result);
-            $('#blah').show();
+            $('#blah').css("display", "block");
         }
 
         reader.readAsDataURL(input.files[0]);
