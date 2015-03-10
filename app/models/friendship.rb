@@ -2,7 +2,7 @@ class Friendship < ActiveRecord::Base
   belongs_to :user
   belongs_to :friend, class_name: 'User', foreign_key: "friend_id"
 
-  after_save :make_mirror_if_needed
+  # after_save :make_mirror_if_needed
 
   validates :friend, presence: true
   validates :user, presence: true
