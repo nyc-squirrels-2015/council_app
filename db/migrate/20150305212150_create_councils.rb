@@ -3,6 +3,7 @@ class CreateCouncils < ActiveRecord::Migration
     create_table :councils do |t|
       t.belongs_to :user, null: false
       t.string :council_name, null: false
+      t.timestamps
     end
   end
 end

@@ -1,6 +1,6 @@
 class CouncilsController < ApplicationController
   def index
-    @councils = Council.where(user_id: current_user.id)
+    @councils = Council.where(user_id: current_user.id).order('created_at DESC')
   end
 
   def new
@@ -8,9 +8,15 @@ class CouncilsController < ApplicationController
   end
 
   def create
+
     @council = Council.where(council_params).first_or_create
     if @council.save
-      redirect_to @council
+      if request.xhr?
+        render :json => @council
+      else
+      flash[:notice] = 'Added to list'
+      redirect_to councils_path
+      end
     else
       flash[:error] = 'Field cannot be left blank.'
       render :new

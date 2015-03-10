@@ -87,6 +87,7 @@ $( document ).ready(function() {
       readURL(this);
   });
 
+
   $("#add_photo_btn").on("click", function(event){
     event.preventDefault();
     chooseFile();
@@ -95,4 +96,25 @@ $( document ).ready(function() {
   function chooseFile() {
       $("#question_image").click();
    };
+
+  $('#council_form form').on('submit',function(event){
+    event.preventDefault();
+    var url= $(this).attr('action');
+    var data = $(this).serialize();
+    $.ajax({
+      type:"post",
+      url: url,
+      data: data,
+      success: function(response){
+        debugger;
+        console.log(response)
+        $( "#councils_list" ).prepend( "<li><a href=/councils/"+response.id+ ">" + response.council_name +"</a></li>" );
+      },
+      error: function(response){
+        console.log("error")
+      }
+    })
+
+  });
+
 });
