@@ -291,6 +291,8 @@ votes green,votes red,votes yellow{
 #flash_notice {
   border: solid 2px black;
   padding: 5px;
+  display: table;
+  margin: 0 auto;
 }
 
 .notice {
