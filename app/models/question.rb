@@ -2,7 +2,7 @@ class Question < ActiveRecord::Base
   belongs_to :user
   belongs_to :council
   has_many :answers
-  has_attached_file :image , :styles => { :medium => "500x600#"}, :storage => :s3,
+  has_attached_file :image , :styles => { small: "200x200#", :medium => "500x600#", :thumb => "100x100#"}, :storage => :s3,
      :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
 
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
