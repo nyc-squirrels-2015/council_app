@@ -3,9 +3,6 @@
 <div>
 <%= render partial: 'form' , locals: {council: Council.new}%>
 </div>
-<div class="btn" id="+council">
-  <%= link_to "Add A Council", "?type=1", :class => "btn" %>
-</div>
 
 <% @councils.each do |council| %>
   <p><%= link_to council.council_name,council_path(council) %></p>
