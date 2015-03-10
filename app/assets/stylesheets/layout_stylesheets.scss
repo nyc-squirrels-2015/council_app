@@ -40,6 +40,7 @@
 }
 
 
+
 .nav > li {
   position: relative;
   display: inline-block;
@@ -186,16 +187,17 @@ th{
   position: fixed;
   right:0;
   bottom:0;
+  background-color: black;
 }
 
 .btn.btn-logo{
   position: fixed;
   left: 0;
   bottom: 0;
-  height: 60px;
-  width: 60px;
+  height: 57px;
+  width: 57px;
   background-image: url("/council-logo2.png");
-  background-size: 60px 60px;
+  background-size: 57px 57px;
 
 }
 
@@ -213,7 +215,7 @@ th{
 
 h5 span{
   color: white;
-  font: bold 20px/50px Helvetica, Sans-Serif; 
+  font: bold 25px/55px Helvetica, Sans-Serif; 
   letter-spacing: -1px;
 }
 
@@ -242,5 +244,7 @@ img {
   margin-top: 20px;
 }
 
-
+votes green,votes red,votes yellow{
+  size: 30px;
+}
 
