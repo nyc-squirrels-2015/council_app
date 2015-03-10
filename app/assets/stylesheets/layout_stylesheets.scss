@@ -261,7 +261,7 @@ th{
   display: block;
   position: absolute;
   left: 0; right: 0; top: 0;
-  border: thin solid fuchsia;
+  /*border: thin solid fuchsia;*/
 }
 
 h5 span{
@@ -316,6 +316,7 @@ votes green,votes red,votes yellow{
   padding: 5px;
   display: table;
   margin: 0 auto;
+}
 
 .question {
   position: relative;
