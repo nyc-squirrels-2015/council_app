@@ -30,8 +30,10 @@ ActiveRecord::Schema.define(version: 20150308183129) do
   end
 
   create_table "councils", force: :cascade do |t|
-    t.integer "user_id",      null: false
-    t.string  "council_name", null: false
+    t.integer  "user_id",      null: false
+    t.string   "council_name", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "friendships", force: :cascade do |t|
