@@ -1,6 +1,8 @@
 
 <h2 class="title"> <%= current_user.firstname %>'s Councils </h2>
-
+<div>
+<%= render partial: 'form' , locals: {council: Council.new}%>
+</div>
 <div class="btn" id="+council">
   <%= link_to "Add A Council", "?type=1", :class => "btn" %>
 </div>
