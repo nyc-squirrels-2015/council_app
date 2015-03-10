@@ -53,19 +53,18 @@ Question.create!([
 ])
 Answer.create!([
   {id: 1, question_id: 1, user_id: 3, like: true, created_at: "2015-03-10 11:21:12", updated_at: "2015-03-10 11:21:12"},
-  {id: 2, question_id: 2, user_id: 1, like: true, created_at: "2015-03-10 11:21:13", updated_at: "2015-03-10 11:21:13"},
-  {id: 3, question_id: 3, user_id: 1, like: true, created_at: "2015-03-10 11:21:18", updated_at: "2015-03-10 11:21:18"},
-  {id: 4, question_id: 4, user_id: 1, like: true, created_at: "2015-03-10 11:21:22", updated_at: "2015-03-10 11:21:22"},
-  {id: 5, question_id: 5, user_id: 1, like: false, created_at: "2015-03-10 11:21:23", updated_at: "2015-03-10 11:21:23"},
+  {id: 2, question_id: 2, user_id: 3, like: true, created_at: "2015-03-10 11:21:13", updated_at: "2015-03-10 11:21:13"},
+  {id: 3, question_id: 3, user_id: 2, like: true, created_at: "2015-03-10 11:21:18", updated_at: "2015-03-10 11:21:18"},
+  {id: 4, question_id: 4, user_id: 3, like: true, created_at: "2015-03-10 11:21:22", updated_at: "2015-03-10 11:21:22"},
+  {id: 5, question_id: 5, user_id: 2, like: false, created_at: "2015-03-10 11:21:23", updated_at: "2015-03-10 11:21:23"},
   {id: 6, question_id: 6, user_id: 1, like: true, created_at: "2015-03-10 11:21:24", updated_at: "2015-03-10 11:21:24"},
-  {id: 7, question_id: 7, user_id: 4, like: true, created_at: "2015-03-10 11:21:25", updated_at: "2015-03-10 11:21:25"},
-  {id: 8, question_id: 8, user_id: 5, like: true, created_at: "2015-03-10 11:21:35", updated_at: "2015-03-10 11:21:35"},
-  {id: 9, question_id: 9, user_id: 2, like: true, created_at: "2015-03-10 11:21:36", updated_at: "2015-03-10 11:21:36"}
+  {id: 7, question_id: 7, user_id: 5, like: true, created_at: "2015-03-10 11:21:25", updated_at: "2015-03-10 11:21:25"},
+  {id: 8, question_id: 8, user_id: 2, like: true, created_at: "2015-03-10 11:21:35", updated_at: "2015-03-10 11:21:35"},
+  {id: 9, question_id: 9, user_id: 3, like: true, created_at: "2015-03-10 11:21:36", updated_at: "2015-03-10 11:21:36"}
 ])
 
 tables = ['users', 'councils', 'council_memberships', 'friendships', 'questions', 'answers']
 tables.each do |tab|
    statement = " select setval('#{tab}_id_seq', (select max(id) from #{tab})) ; "
-   puts statement
    ActiveRecord::Base.connection.execute(statement)
 end
