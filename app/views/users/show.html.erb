@@ -1,6 +1,4 @@
 <div class="prof_page">
-<h1 class="welcome-user">Hi <%= @user.firstname + '!'%></h1>
-
 
   <div class="prof_container">
     <% @questions.each do |question| %>
@@ -13,9 +11,9 @@
         <% else %>
 
           <% if question.up_percentage > 50 %>
-           <h5 class="content"><span class="votes green">  😘  </span> <span> <%= question.content %></span> </h5>
+           <h5 class="content"><span class="votes green hearts"> <img src="http://bit.ly/1NErbsZ">  </span> <span> <%= question.content %></span> </h5>
           <% elsif question.up_percentage < 50 %>
-            <h5 class="content"><span class="votes red">  💩  </span> <span> <%= question.content %></span>h5>
+            <h5 class="content"><span class="votes red">&#x2717;</span> <span> <%= question.content %></span> </h5>
           <% else %>
             <h5 class="content"><span class="votes yellow">TIED!</span> <span> <%= question.content %></span></h5>
           <% end %>
