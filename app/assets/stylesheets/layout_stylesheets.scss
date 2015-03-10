@@ -12,8 +12,11 @@
 
 .votes {
   margin-left: 3px;
-  padding: 3px;
+  padding: 8px;
   color: white;
+  line-height: 50px;
+  height: 50px;
+  width: 50px;
 }
 
 .yellow {
@@ -22,18 +25,26 @@
 }
 
 .green {
-  background-color: green;
+  background-color: #1ea49d;
+  border-radius: 50px;
+  text-align: center;
 }
 
 .red {
   background-color: red;
+  border-radius: 20px;
+  text-align: center;
 }
 
 .blue {
   background-color: blue;
 }
 
-
+.hearts{
+  width: 7px;
+  height: 10px;
+  font: bold;
+}
 
 #new_answer {
   display:none;
@@ -216,7 +227,10 @@ th{
 
 .show-votes {
   color:white;
+  width: 20px;
+  height: 30px;
   padding: 5px 10px;
+  text-align: center;
 }
 
 .btn.btn-lg.btn-success{
@@ -243,15 +257,16 @@ th{
   border: thin solid blue;
 }
 
-.answer{
+.answer {
+  display: block;
   position: absolute;
-  left: 0;
-  width: 100%;
+  left: 0; right: 0; top: 0;
+  /*border: thin solid fuchsia;*/
 }
 
 h5 span{
-  color: white;
-  font: bold 25px/55px Helvetica, Sans-Serif;
+  color: black;
+  font: bold 25px/55px Josefin Sans, Sans-Serif;
   letter-spacing: -1px;
 }
 
@@ -261,7 +276,7 @@ image_tag{
 
 .content{
   margin-top: 20px;
-  z-index: 2;
+  z-index: 1000;
 }
 
 .image{
@@ -272,6 +287,7 @@ image_tag{
 .prof_container{
   bottom-margin: 10px;
   width: 100%;
+  position: relative;
 }
 
 img {
@@ -281,7 +297,7 @@ img {
 }
 
 votes green,votes red,votes yellow{
-  size: 30px;
+  size: 100px;
 }
 
 .hidden {
@@ -302,3 +318,31 @@ votes green,votes red,votes yellow{
   margin: 0 auto;
 }
 
+.question {
+  position: relative;
+  width: 100%;
+}
+
+.question .content {
+  color: white;
+  text-shadow: 2px 2px black;
+}
+
+.question .content > span {
+  color: white;
+}
+
+.votes {
+  width: 25px; height: 25px;
+  line-height: 25px;
+}
+
+.votes.green {
+  position: absolute;
+  top: 0; left: 0;
+}
+
+.votes.red {
+  position: absolute;
+  top: 0; right: 0;
+}
