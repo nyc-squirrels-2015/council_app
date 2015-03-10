@@ -1,12 +1,11 @@
 <div class="prof_page">
 <h1 class="welcome-user">Hi <%= @user.firstname + '!'%></h1>
 
-<%= button_to "Add Question", new_question_path, method: 'get' %></button>
 
   <div class="prof_container">
     <% @questions.each do |question| %>
     <div class="image">
-     <%= image_tag question.image(:small) %>
+     <%= image_tag question.image, width:"100%" %>
       <span class="answer">
         <% if question.answers.count == 0 %>
           <h5 class="content"><span> <%= question.content %></span><span class="votes blue">No reply</span></h5>
@@ -14,9 +13,9 @@
         <% else %>
 
           <% if question.up_percentage > 50 %>
-           <h5 class="content"><span class="votes green">  √  </span> <span> <%= question.content %></span> </h5>
+           <h5 class="content"><span class="votes green">  😘  </span> <span> <%= question.content %></span> </h5>
           <% elsif question.up_percentage < 50 %>
-            <h5 class="content"><span class="votes red">  X  </span> <span> <%= question.content %></span>h5>
+            <h5 class="content"><span class="votes red">  💩  </span> <span> <%= question.content %></span>h5>
           <% else %>
             <h5 class="content"><span class="votes yellow">TIED!</span> <span> <%= question.content %></span></h5>
           <% end %>
@@ -26,3 +25,6 @@
     </div>
   </div>
 </div>
+
+<a href="#" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-camera"></span>  </a>
+<div class="btn btn-logo"></div>
