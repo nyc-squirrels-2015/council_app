@@ -21,4 +21,9 @@ class Question < ActiveRecord::Base
       ((up_votes.to_f / self.answers.count.to_f) * 100).round
     end
   end
+
+  def already_answered(user_id)
+    !!answers.find_by(user_id: user_id)
+  end
+
 end
