@@ -22,7 +22,7 @@ class QuestionsController < ApplicationController
       redirect_to question_path(@question)
     else
       flash[:error] = 'Field cannot be left blank.'
-      render :new
+      redirect_to new_question_path
     end
   end
 
