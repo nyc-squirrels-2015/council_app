@@ -66,6 +66,10 @@
   border: solid white 2px;
 }
 
+#login-form input {
+  margin: 5px;
+}
+
 #login-btn {
   display: inline-block;
   background-color: Transparent;
@@ -98,6 +102,10 @@
 #sign-up-form {
   display: none;
   color: white;
+}
+
+#sign-up-form input {
+  margin: 5px;
 }
 
 #sign-up-form input[type="submit"] {
