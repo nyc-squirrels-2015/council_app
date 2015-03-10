@@ -75,8 +75,8 @@ $( document ).ready(function() {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function (e) {
-            $('#blah').attr('src', e.target.result);
-            $('#blah').show();
+            $('#uploaded-img').attr('src', e.target.result);
+            $('#uploaded-img').css("display", "block");
         }
 
         reader.readAsDataURL(input.files[0]);
@@ -86,4 +86,13 @@ $( document ).ready(function() {
   $("#question_image").change(function(){
       readURL(this);
   });
+
+  $("#add_photo_btn").on("click", function(event){
+    event.preventDefault();
+    chooseFile();
+  })
+
+  function chooseFile() {
+      $("#question_image").click();
+   };
 });
