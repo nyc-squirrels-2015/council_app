@@ -14,6 +14,9 @@
   margin-left: 3px;
   padding: 8px;
   color: white;
+  line-height: 50px;
+  height: 50px;
+  width: 50px;
 }
 
 .yellow {
@@ -224,7 +227,10 @@ th{
 
 .show-votes {
   color:white;
+  width: 20px;
+  height: 30px;
   padding: 5px 10px;
+  text-align: center;
 }
 
 .btn.btn-lg.btn-success{
@@ -251,10 +257,11 @@ th{
   border: thin solid blue;
 }
 
-.answer{
+.answer {
+  display: block;
   position: absolute;
-  left: 0;
-  width: 100%;
+  left: 0; right: 0; top: 0;
+  border: thin solid fuchsia;
 }
 
 h5 span{
@@ -269,7 +276,7 @@ image_tag{
 
 .content{
   margin-top: 20px;
-  z-index: 2;
+  z-index: 1000;
 }
 
 .image{
@@ -280,6 +287,7 @@ image_tag{
 .prof_container{
   bottom-margin: 10px;
   width: 100%;
+  position: relative;
 }
 
 img {
@@ -308,5 +316,32 @@ votes green,votes red,votes yellow{
   padding: 5px;
   display: table;
   margin: 0 auto;
+
+.question {
+  position: relative;
+  width: 100%;
 }
 
+.question .content {
+  color: white;
+  text-shadow: 2px 2px black;
+}
+
+.question .content > span {
+  color: white;
+}
+
+.votes {
+  width: 25px; height: 25px;
+  line-height: 25px;
+}
+
+.votes.green {
+  position: absolute;
+  top: 0; left: 0;
+}
+
+.votes.red {
+  position: absolute;
+  top: 0; right: 0;
+}
