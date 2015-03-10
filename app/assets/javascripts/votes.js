@@ -106,7 +106,6 @@ $( document ).ready(function() {
       url: url,
       data: data,
       success: function(response){
-        debugger;
         console.log(response)
         $( "#councils_list" ).prepend( "<li><a href=/councils/"+response.id+ ">" + response.council_name +"</a></li>" );
       },
