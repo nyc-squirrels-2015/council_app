@@ -86,4 +86,13 @@ $( document ).ready(function() {
   $("#question_image").change(function(){
       readURL(this);
   });
+
+  $("#add_photo_btn").on("click", function(event){
+    event.preventDefault();
+    chooseFile();
+  })
+
+  function chooseFile() {
+      $("#question_image").click();
+   };
 });
