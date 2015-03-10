@@ -32,9 +32,9 @@ describe FriendshipsController do
 
   describe "#create" do
     it "creates the friendship if valid params" do
-       post :create, friendship: {
+       post :create, friend: {
         email: 'jay@example.com',
-        user_id: 3
+        user_id: user
       }
 
       expect(response).to be_redirect
