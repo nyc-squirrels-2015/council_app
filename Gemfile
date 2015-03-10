@@ -57,7 +57,7 @@ group :development, :test do
 
   gem 'better_errors'
 end
-
+gem 'seed_dump'
 gem 'simplecov', :require => false, :group => :test
 
 group :production do
