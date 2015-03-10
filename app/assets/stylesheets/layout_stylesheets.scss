@@ -288,5 +288,17 @@ votes green,votes red,votes yellow{
   display: none;
 }
 
+#flash_notice {
+  border: solid 2px black;
+  padding: 5px;
+  display: table;
+  margin: 0 auto;
+}
 
+.notice {
+  border: solid 2px black;
+  padding: 5px;
+  display: table;
+  margin: 0 auto;
+}
 
