@@ -1,1 +1,2 @@
-<h1><span class="green show-votes"><%=@question.answers.where(like: true).count%></span><span class="red show-votes"><%=@question.answers.where(like: false).count%></span></h1>
+<h1><span class="green show-votes"><%=@question.answers.where(like: true).count%></span>
+  <span class="red show-votes"><%=@question.answers.where(like: false).count%></span></h1>

@@ -5,10 +5,9 @@ class FriendshipsController < ApplicationController
   end
 
   def create
-
-     @friendship = Friendship.create(user_id: current_user.id, friend_id: find_friend_id(params[:email]))
-     send_notification(@friendship.user.firstname, "Invite for friendship")
-     redirect_to friendship_path(@friendship)
+   @friendship = Friendship.create(user_id: current_user.id, friend_id: find_friend_id(params[:email]))
+   send_notification(@friendship.user.firstname, "Invite for friendship")
+   redirect_to friendship_path(@friendship)
   end
 
   def new
@@ -17,14 +16,13 @@ class FriendshipsController < ApplicationController
     @invites = Friendship.where(friend_id: current_user.id).where(status: false)
   end
 
-
   def show
     @friendship = Friendship.find(params[:id])
   end
 
 
   def destroy
-      Friendship.find(params[:id]).destroy
+    Friendship.find(params[:id]).destroy
     redirect_to friendships_path
   end
 
@@ -34,7 +32,6 @@ class FriendshipsController < ApplicationController
   end
 
   def confirm
-
     @friend = Friendship.find(params[:id])
     @friend.status = true
     if @friend.save
@@ -45,7 +42,6 @@ class FriendshipsController < ApplicationController
     end
 
   end
-
 
   private
 

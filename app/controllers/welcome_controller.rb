@@ -3,5 +3,4 @@ class WelcomeController < ApplicationController
     @user = User.new
     render :layout => false
 	end
-
 end
