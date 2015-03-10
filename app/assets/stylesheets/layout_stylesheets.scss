@@ -22,18 +22,23 @@
 }
 
 .green {
-  background-color: green;
+  background-color: #1ea49d;
 }
 
 .red {
   background-color: red;
+  border-radius: 20px;
+  text-align: center;
 }
 
 .blue {
   background-color: blue;
 }
 
-
+.hearts{
+  width: 5px;
+  height: 5px;
+}
 
 #new_answer {
   display:none;
