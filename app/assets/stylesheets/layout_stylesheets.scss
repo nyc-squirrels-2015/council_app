@@ -12,7 +12,7 @@
 
 .votes {
   margin-left: 3px;
-  padding: 3px;
+  padding: 8px;
   color: white;
 }
 
@@ -23,7 +23,7 @@
 
 .green {
   background-color: #1ea49d;
-  border-radius: 20px;
+  border-radius: 50px;
   text-align: center;
 }
 
@@ -38,8 +38,9 @@
 }
 
 .hearts{
-  width: 5px;
-  height: 5px;
+  width: 7px;
+  height: 10px;
+  font: bold;
 }
 
 #new_answer {
@@ -257,8 +258,8 @@ th{
 }
 
 h5 span{
-  color: white;
-  font: bold 25px/55px Helvetica, Sans-Serif;
+  color: black;
+  font: bold 25px/55px Josefin Sans, Sans-Serif;
   letter-spacing: -1px;
 }
 
@@ -288,7 +289,7 @@ img {
 }
 
 votes green,votes red,votes yellow{
-  size: 30px;
+  size: 100px;
 }
 
 .hidden {
