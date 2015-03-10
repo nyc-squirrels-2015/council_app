@@ -20,12 +20,9 @@ class AnswersController < ApplicationController
     end
   end
 
+  private
 
-
-
- private
-
-def answer_params
+  def answer_params
  	params.require(:answer).permit(:like).merge(user_id: current_user.id)
  end
 end
