@@ -75,8 +75,8 @@ $( document ).ready(function() {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function (e) {
-            $('#blah').attr('src', e.target.result);
-            $('#blah').css("display", "block");
+            $('#uploaded-img').attr('src', e.target.result);
+            $('#uploaded-img').css("display", "block");
         }
 
         reader.readAsDataURL(input.files[0]);
