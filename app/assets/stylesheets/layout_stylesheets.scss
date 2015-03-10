@@ -67,17 +67,25 @@
 }
 
 #login-btn {
-  position: relative;
+  display: inline-block;
   background-color: Transparent;
   color: white;
   border: solid white 2px;
+  padding: 0 10px;
+  font-size: 25px;
+  font-family: 'Josefin Sans', sans-serif;
+  margin-top: 10px;
 }
 
 #sign-up-btn {
-  position: relative;
+  display: inline-block;
   background-color: Transparent;
   color: white;
   border: solid white 2px;
+  padding: 0 10px;
+  font-size: 25px;
+  font-family: 'Josefin Sans', sans-serif;
+  margin-top: 10px;
 }
 
 #sign-up-form {
@@ -121,6 +129,7 @@ th{
 
 #welcome-text {
   text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 50px;
   display: block;
   color: white;
@@ -208,19 +217,19 @@ th{
 }
 
 .answer{
-  position: absolute; 
-  left: 0; 
-  width: 100%; 
+  position: absolute;
+  left: 0;
+  width: 100%;
 }
 
 h5 span{
   color: white;
-  font: bold 25px/55px Helvetica, Sans-Serif; 
+  font: bold 25px/55px Helvetica, Sans-Serif;
   letter-spacing: -1px;
 }
 
 image_tag{
-  z-index: -1; 
+  z-index: -1;
 }
 
 .content{
@@ -229,7 +238,7 @@ image_tag{
 }
 
 .image{
-  position: relative; 
+  position: relative;
   width: 100%; /* for IE 6 */
 }
 
@@ -247,4 +256,5 @@ img {
 votes green,votes red,votes yellow{
   size: 30px;
 }
+
 
