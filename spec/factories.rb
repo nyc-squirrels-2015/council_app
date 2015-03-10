@@ -17,7 +17,10 @@ FactoryGirl.define do
     f.council :council
   end
 
-
+  factory :friendship do |f|
+    f.friend_id 2
+    f.association :user
+  end
 
   factory :question do |f|
     f.content {Faker::Lorem.sentence}
