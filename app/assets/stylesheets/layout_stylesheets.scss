@@ -197,6 +197,18 @@ th{
   display: none;
 }
 
+#new_question {
+  margin-top: 20px;
+}
+
+#new_question input {
+  margin: 10px;
+}
+
+#add_photo_btn {
+  margin: 10px;
+}
+
 .page-center {
   display: table;
   margin: 0 auto;
@@ -271,5 +283,10 @@ img {
 votes green,votes red,votes yellow{
   size: 30px;
 }
+
+.hidden {
+  display: none;
+}
+
 
 
