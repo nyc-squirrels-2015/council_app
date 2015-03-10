@@ -25,8 +25,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  #ERROR HANDLING (see https://github.com/zencephalon/moosetalk/blob/master/app/helpers/error.rb)
-
   def add_error!(error_msg)
     if session[:errors]
       session[:errors] << error_msg
