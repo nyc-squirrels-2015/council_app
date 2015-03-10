@@ -11,7 +11,7 @@
         <% else %>
 
           <% if question.up_percentage > 50 %>
-           <h5 class="content"><span class="votes green hearts"> <img src="http://bit.ly/1NErbsZ">  </span> <span> <%= question.content %></span> </h5>
+           <h5 class="content"><span class="votes green hearts"><i class="fa fa-heart-o"></i></span> <span> <%= question.content %></span> </h5>
           <% elsif question.up_percentage < 50 %>
             <h5 class="content"><span class="votes red">&#x2717;</span> <span> <%= question.content %></span> </h5>
           <% else %>
