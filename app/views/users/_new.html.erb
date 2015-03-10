@@ -1,13 +1,13 @@
   <h1 class="center">Sign Up Form</h1>
   <div class="center">
     <%= form_for user do |f| %>
-      <%= f.label(:firstname, 'First Name') %>
+      <%= f.label(:firstname, 'First Name') %><br>
       <%= f.text_field(:firstname) %><br>
-      <%= f.label(:lastname, 'Last Name') %>
+      <%= f.label(:lastname, 'Last Name') %><br>
       <%= f.text_field(:lastname) %><br>
-      <%= f.label(:email, 'Email') %>
+      <%= f.label(:email, 'Email') %><br>
       <%= f.text_field(:email) %><br>
-      <%= f.label(:password, 'Password') %>
+      <%= f.label(:password, 'Password') %><br>
       <%= f.password_field(:password) %><br>
       <%= f.submit %>
     <% end %>
