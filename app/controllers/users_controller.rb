@@ -18,19 +18,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @questions = []
-    
-    @user.questions.each do |question|
-      @questions << question
-    end
+    council_ids = " ( #{current_user.council_memberships.pluck(:council_id).join(',')} )"
+    query = "SELECT * from questions 
+               WHERE questions.user_id = #{current_user.id} 
+               OR questions.council_id in #{council_ids} order by created_at DESC"
+    @questions = Question.find_by_sql(query)
 
-    @user.councils.each do |council|
-      council.questions.each do |question|
-        @questions << question
-      end
-    end
-    @questions = @questions.sort_by(&:created_at)
   end
 
   def edit
