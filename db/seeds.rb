@@ -62,3 +62,10 @@ Answer.create!([
   {id: 8, question_id: 8, user_id: 5, like: true, created_at: "2015-03-10 11:21:35", updated_at: "2015-03-10 11:21:35"},
   {id: 9, question_id: 9, user_id: 2, like: true, created_at: "2015-03-10 11:21:36", updated_at: "2015-03-10 11:21:36"}
 ])
+
+tables = ['users', 'councils', 'council_memberships', 'friendships', 'questions', 'answers']
+tables.each do |tab|
+   statement = " select setval('#{tab}_id_seq', (select max(id) from #{tab})) ; "
+   puts statement
+   ActiveRecord::Base.connection.execute(statement)
+end
