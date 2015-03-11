@@ -8,18 +8,18 @@
               <% if question.up_percentage > 50 %>
                     <h5 class="question_text center"><i class="fa fa-heart white_icon"></i>&nbsp;</i><%= question.content %></h5>
               <% elsif question.up_percentage < 50 %>
-                    <h5 class="question_text center"><span class="white_icon"><i class="fa fa-times white_icon"></i></span><%= question.content %></h5>
+                    <h5 class="question_text center"><i class="fa fa-times white_icon"></i><%= question.content %></h5>
               <% else %>
-                    <h5 class="question_text center"><span class="white_icon"><i class="fa fa-meh-o"></i><%= question.content %></h5>
+                    <h5 class="question_text center"><i class="fa fa-meh-o"></i><%= question.content %></h5>
               <% end %>
             <% end %>
 
          <% else %>
             <h5 class="question_text center"><i class="fa fa-question-circle white_icon">&nbsp;</i><%= question.content %></h5>
-          <% end %>  
-  </div>        
+          <% end %>
+  </div>
         <%= link_to(image_tag(question.image, width:"100%", :class => "img_preview"), question_path(question)) %>
     <% end %>
   </div>
 
-<div class="btn btn-logo"></div>
+<a href="/questions/new"><div class="btn btn-logo"></div></a>

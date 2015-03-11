@@ -2,19 +2,32 @@
   <h1 class="center"><%= @question.content %> </h1>
   <h3 class="center">From <%= @question.council.council_name %></h3>
 
-  <% if current_user == @question.user%>
-    <h3 class="center">Votes</h3>
+
+
+    <% if current_user == @question.user %>
+      <% if @question.answers.count == 0 %>
+          <h5 class="center">Your council is still deciding</h5>
+      <% else %>
+        <% if @question.up_percentage > 50 %>
+              <h5 class="center">Your council says DO IT!</h5>
+        <% elsif @question.up_percentage < 50 %>
+              <h5 class="center">Your council thinks it's a bad idea</h5>
+        <% else %>
+              <h5 class="center">Your council is on the fence about this.</h5>
+        <% end %>
+      <% end %>
+      <h3 class="center">Votes</h3>
     <%= render 'answers/answers_count' %><br>
     <%= button_to 'Delete', question_path(@question), :method => :delete%>
-  <% end %>
+    <% end %>
+</div>
 
   <p class="center">
     <%= @question.content  %>
   </p>
 
-  <!-- TEMP IMAGE -->
   <br>
-    <%= image_tag @question.image.url(:medium), :class=> 'vote-swipe', :data => { action: @action }%>
+    <%= image_tag @question.image.url(:medium), :class=> 'vote-swipe margin-center', :data => { action: @action }%>
     <br>
 
   <%= form_for [@question, @answer] do |f|  %>
