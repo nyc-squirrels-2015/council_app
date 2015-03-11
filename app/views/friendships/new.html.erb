@@ -1,7 +1,7 @@
 <h2 class="center">Friend's Dashboard</h2>
 <h5 class="center">Find a friend to add:</h5>
 
-<div class="page-center">
+<div class="page-center" id="friend_form">
   <%= form_tag("/friendships", method: "post") do %>
     <%= label_tag(:email, "Email:") %>
     <%= text_field_tag(:email, nil, placeholder: 'Email') %>
@@ -10,4 +10,24 @@
   <h3>Pending friend requests:</h3>
   <%= render "friend_requests" %>
 </div>
+
+<script type="text/javascript">
+  $("#friend_form form").on('submit', function(event) {
+    event.preventDefault();
+    var data = $(this).serialize();
+    $.ajax('/friendships', {
+      data: data,
+      type: 'POST'
+    })
+      .then(function(response) {
+        var friendship = response.friendship
+        var invites = response.invite
+        console.log(invites)
+       $(".invite_list").empty()
+       for(var i=0; i < invites.length; i++){
+        $(".invite_list").append("<li><a href=/friendships/" + friendship.id + ">"+invites[i].user.firstname+ " " +invites[i].user.lastname+"</a></li>");
+        }
+      })
+  } )
+</script>
 
