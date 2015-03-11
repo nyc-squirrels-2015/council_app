@@ -8,9 +8,9 @@
               <% if question.up_percentage > 50 %>
                     <h5 class="question_text center"><i class="fa fa-heart white_icon"></i>&nbsp;</i><%= question.content %></h5>
               <% elsif question.up_percentage < 50 %>
-                    <h5 class="question_text center"><span class="white_icon"><i class="fa fa-times white_icon"></i></span><%= question.content %></h5>
+                    <h5 class="question_text center"><i class="fa fa-times white_icon"></i><%= question.content %></h5>
               <% else %>
-                    <h5 class="question_text center"><span class="white_icon"><i class="fa fa-meh-o"></i><%= question.content %></h5>
+                    <h5 class="question_text center"><i class="fa fa-meh-o"></i><%= question.content %></h5>
               <% end %>
             <% end %>
 
