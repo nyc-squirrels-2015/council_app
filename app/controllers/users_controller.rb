@@ -18,8 +18,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @questions = @user.questions
+    council_ids = " ( #{current_user.council_memberships.pluck(:council_id).join(',')} )"
+    query = "SELECT * from questions 
+               WHERE questions.user_id = #{current_user.id} 
+               OR questions.council_id in #{council_ids} order by created_at DESC"
+    @questions = Question.find_by_sql(query)
+
   end
 
   def edit
