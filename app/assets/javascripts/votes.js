@@ -107,7 +107,6 @@ $( document ).ready(function() {
       url: url,
       data: data,
       success: function(response){
-        console.log(response)
         $( "#councils_list" ).prepend( "<li><a href=/councils/"+response.id+ ">" + response.council_name +"</a></li>" );
       },
       error: function(response){
@@ -117,4 +116,18 @@ $( document ).ready(function() {
 
   });
 
+  $('#council_membership_form form').on('submit', function(event){
+    event.preventDefault();
+    var url = $(this).attr('action');
+    var data = $(this).serialize();
+    $.ajax({
+      type: 'post',
+      url: url,
+      data: data,
+      success: function(response){
+        var members = response
+       $(".member_list").prepend("<li>"+ members[members.length -1].firstname +" "+ members[members.length -1].lastname+"</li>")
+      }
+    })
+  });
 });
