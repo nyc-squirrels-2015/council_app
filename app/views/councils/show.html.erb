@@ -1,17 +1,17 @@
-<div class="council_container">
+<div class="council_container page center">
   <h2> <%= @council.council_name %></h2>
 
   <div id='council_membership_form'>
     <%= render partial: '/council_memberships/form' , locals: {council_membership: CouncilMembership.new}%>
   </div>
   <div id='council_member'>
-    <ul class='member_list'>
-    <% @council.members.each do |member| %>
-      <li>
-        <%= member.firstname %><%= member.lastname %>
-      </li>
+    <% if @council.members.count == 0 %>
+      <h5 class="no-members-error">There are no members in this council</h5>
+    <% else %>
+      <% @council.members.each do |member|%>
+        <%= member.firstname %> <%= member.lastname %><br>
+      <% end %>
     <% end %>
-    </ul>
   </div>
 
 </div>
