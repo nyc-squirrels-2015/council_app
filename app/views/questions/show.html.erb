@@ -1,6 +1,13 @@
 <div class="page-center">
   <h1 class="center"><%= @question.content %> </h1>
   <h3 class="center">From <%= @question.council.council_name %></h3>
+
+  <% if current_user == @question.user%>
+    <h3 class="center">Votes</h3>
+    <%= render 'answers/answers_count' %><br>
+    <%= button_to 'Delete', question_path(@question), :method => :delete%>
+  <% end %>
+
   <p class="center">
     <%= @question.content  %>
   </p>
@@ -9,11 +16,6 @@
   <br>
     <%= image_tag @question.image.url(:medium), :class=> 'vote-swipe', :data => { action: @action }%>
     <br>
-  <% if current_user == @question.user%>
-    <h3 class="center">Votes</h3>
-    <%= render 'answers/answers_count' %><br>
-    <%= button_to 'Delete', question_path(@question), :method => :delete%>
-  <% end %>
 
   <%= form_for [@question, @answer] do |f|  %>
   <%= f.check_box :like %>

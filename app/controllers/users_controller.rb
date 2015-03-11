@@ -19,11 +19,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    council_ids = " ( #{current_user.council_memberships.pluck(:council_id).join(',')} )"
-    query = "SELECT * from questions 
-               WHERE questions.user_id = #{current_user.id} 
-               OR questions.council_id in #{council_ids} order by created_at DESC"
-    @questions = Question.find_by_sql(query)
+    council_ids = current_user.council_memberships.pluck(:council_id)
+
+    @questions =  Question.for_user_and_councils(current_user.id, council_ids)
 
   end
 
