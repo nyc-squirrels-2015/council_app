@@ -62,4 +62,5 @@ gem 'simplecov', :require => false, :group => :test
 
 group :production do
   gem 'mysql2'
+  gem 'therubyracer'
 end
