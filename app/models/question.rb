@@ -32,7 +32,7 @@ class Question < ActiveRecord::Base
 
     base_query = "SELECT * from questions WHERE questions.user_id = #{user_id} "
 
-    con_query ="OR questions.council_id in (#{      format_council_ids}) "
+    con_query ="OR questions.council_id in #{      format_council_ids} "
 
     order_by = "order by created_at DESC"
 
