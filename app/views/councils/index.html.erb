@@ -1,11 +1,9 @@
 
-<h2 class="title"> <%= current_user.firstname %>'s Councils </h2>
-<div id='council_form'>
-<%= render partial: 'form' , locals: {council: Council.new}%>
-</div>
-<ul id='councils_list'>
+<h2 class="title center"> <%= current_user.firstname %>'s Councils </h2>
+<div class="page-center" id='council_form'>
+  <%= render partial: 'form' , locals: {council: Council.new}%>
 
-<% @councils.each do |council| %>
-  <li><%= link_to council.council_name, council_path(council) %></li>
-<% end %>
-</ul>
+  <% @councils.each do |council| %>
+    <%= link_to council.council_name, council_path(council) %><br>
+  <% end %>
+</div>
