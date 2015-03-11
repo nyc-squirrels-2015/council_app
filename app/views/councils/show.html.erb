@@ -5,7 +5,13 @@
     <%= render partial: '/council_memberships/form' , locals: {council_membership: CouncilMembership.new}%>
   </div>
   <div id='council_member'>
-    Council Member
+    <ul class='member_list'>
+    <% @council.members.each do |member| %>
+      <li>
+        <%= member.firstname %><%= member.lastname %>
+      </li>
+    <% end %>
+    </ul>
   </div>
 
 </div>
