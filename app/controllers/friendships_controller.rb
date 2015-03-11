@@ -37,8 +37,9 @@ class FriendshipsController < ApplicationController
     if @friend.save
       redirect_to invite_path
     else
-      flash[:error] = 'Field cannot be left blank.'
-      redirect_to frindship_pathgit
+      usual_error = find_in_errors(@friend, "can't be blank")
+      flash[:error] = usual_error ? 'Field cannot be left blank.' : 'The friend could not be added.'
+      redirect_to friendship_path
     end
 
   end
