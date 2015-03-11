@@ -1,15 +1,3 @@
-<h1>Add member to </h1>
-<%= form_for @council_membership do |f| %>
-      <select name="council_membership[council_id]">
-        <% current_user.councils.each do |council| %>
-          <option value=<%=council.id%>><%= council.council_name %></option>
-        <% end %>
-      </select>
-      <select name="council_membership[user_id]">
-        <% current_user.friends.each do |friend| %>
-          <option value=<%=friend.id%>><%= friend.firstname %></option>
-        <% end %>
-      </select>
-  <%= f.submit('Add')%>
-<% end %>
-
+<div>
+<%= render "form" %>
+</div>
