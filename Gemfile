@@ -61,5 +61,5 @@ gem 'seed_dump'
 gem 'simplecov', :require => false, :group => :test
 
 group :production do
-  gem 'pg'
+  gem 'mysql2'
 end
