@@ -11,7 +11,7 @@ describe CouncilsController do
   describe "#index" do
     it "assigns the councils to Council.all" do
       get :index
-      expect(response).to be_success
+      expect(response).to render_template("index")
     end
   end
 
