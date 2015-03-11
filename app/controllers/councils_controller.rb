@@ -10,7 +10,7 @@ class CouncilsController < ApplicationController
   def create
 
     @council = Council.where(council_params).first_or_create
-    if @council.save
+    if @council
       if request.xhr?
         flash[:notice] = 'Added to list'
         render :json => @council
@@ -18,6 +18,10 @@ class CouncilsController < ApplicationController
       flash[:notice] = 'Added to list'
       redirect_to councils_path
       end
+
+      flash[:notice] = 'Added to list'
+      redirect_to councils_path
+
     else
       usual_error = find_in_errors(@council, "can't be blank")
       flash[:error] = usual_error ? 'Field cannot be left blank.' : 'The council could not be created.'
