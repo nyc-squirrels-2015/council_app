@@ -11,7 +11,8 @@ $( document ).ready(function() {
         $('#answer_like').prop('checked', false);
       }
       $('#new_answer').submit();
-    }
+    },
+    threshold:200
   });
 
   var InfiniteRotator =
