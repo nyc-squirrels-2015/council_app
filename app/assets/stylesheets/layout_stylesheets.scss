@@ -281,7 +281,7 @@ th{
 
 .btn.btn-logo{
   position: fixed;
-  left: 40%;
+  left: 50%;
   bottom: 0;
   height: 80px;
   width: 80px;
@@ -295,6 +295,8 @@ th{
   box-shadow: 0 0 20px rgba(0, 0, 0, 2.0);
   -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 2.0);
   -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 2.0);
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
 }
 
 .btn.btn-logo  img {
@@ -355,6 +357,7 @@ votes green,votes red,votes yellow{
   padding: 5px;
   display: table;
   margin: 0 auto;
+  margin-top: 70px;
 }
 
 .question {
