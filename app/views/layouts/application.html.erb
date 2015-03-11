@@ -16,18 +16,13 @@
 
 </head>
 
-  <nav class="navbar navbar-default navbar-inverse" role="navigation">
 
-          <div class="" id="navigationbar">
-          <ul class="nav navbar-nav">
-           <li><a href="/friendships/new"><span class="glyphicon glyphicon-user" style="color:white" aria-hidden="true"></span></a></li>
-           <li class="active"><a href="/users/<%= current_user.id %>" class="logo-title">Council</a></li>
-           <li><a href="/councils"><span class="glyphicon glyphicon-align-justify" style="color:white" aria-hidden="true"></span></a></li>
-           </ul>
-        </div><!-- /.navbar-collapse -->
-     <div class="container-fluid" id="navfluid">
-     </div><!-- /.container-fluid -->
+  <nav class="navybar">
+   <a class="nav_lft" href="/friendships/new"><i class="fa fa-users"></i></a>
+   <a class="nav_banner" href="/users/<%= current_user.id %>" >Council</a>
+   <a class="nav_rt" href="/councils"><i class="fa fa-gavel"></i></a>
   </nav>
+  
 <body id="main">
 <%if flash[:notice] %>
 <div class="center" id="flash_notice">
@@ -38,10 +33,14 @@
     <div class="notice center"><%= flash[:error] %></div>
   <% end %>
 
-
+<div class="content">
 <%= yield %>
-
+</div>
 </body>
 
 
 </html>
+  <!-- <nav class="navbar navbar-default navbar-inverse" role="navigation"> -->
+
+
+<!--            <li class="active"><a href="/users/<%= current_user.id %>" class="logo-title">Council</a></li> -->
