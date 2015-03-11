@@ -5,13 +5,36 @@
     <%= render partial: '/council_memberships/form' , locals: {council_membership: CouncilMembership.new}%>
   </div>
   <div id='council_member'>
+    <ul class="member_list">
     <% if @council.members.count == 0 %>
       <h5 class="no-members-error">There are no members in this council</h5>
     <% else %>
       <% @council.members.each do |member|%>
-        <%= member.firstname %> <%= member.lastname %><br>
+      <li>
+        <%= member.firstname %> <%= member.lastname %>
+        </li>
       <% end %>
     <% end %>
+    </ul>
   </div>
 
 </div>
+
+
+<script type="text/javascript">
+  $("#council_membership_form form").on('submit', function(event) {
+    event.preventDefault();
+    var data = $(this).serialize();
+    $.ajax('/council_memberships', {
+      data: data,
+      type: 'POST'
+    })
+      .then(function(response) {
+        var members = response
+       $(".member_list").empty()
+       for(var i=0; i < members.length; i++){
+        $(".member_list").append("<li>"+ members[i].firstname +" "+ members[i].lastname+"</li>");
+       }
+      })
+  } )
+</script>
