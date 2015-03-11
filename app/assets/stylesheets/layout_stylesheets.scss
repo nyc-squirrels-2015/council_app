@@ -9,8 +9,44 @@
   vertical-align: middle;
   color: white;
   text-align: center;
-
+  /*background-color: #1EA49D;*/
 }
+
+.navybar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  bottom-padding:20px; 
+  background-color: #1EA49D;
+  color: white;
+  height: 48px;
+  line-height: 48px;
+  font-family: 'Pacifico', cursive;
+  font-size: 28px;
+  text-align: center;
+}
+
+.navybar a {
+  color: white;
+}
+
+.content{
+  margin-top: 48px;
+}
+
+
+.nav_lft{
+  position: absolute;
+  left:0; top: 0; bottom: 0;
+   /* padding: 5px;*/
+}
+
+.nav_rt{
+  position: absolute;
+  right:0; top: 0; bottom: 0; 
+  /*padding: 5px;*/
+}
+
 
 .votes {
   margin-left: 3px;
@@ -272,10 +308,6 @@ h5 span{
 }
 
 
-/*.content{
-  margin-top: 20px;
-  z-index: 1000;
-}*/
 
 .image{
   position: relative;
@@ -290,7 +322,6 @@ h5 span{
 
 .img_preview {
   border: 0;
-  margin-bottom: 50px;
 }
 
 votes green,votes red,votes yellow{
@@ -347,6 +378,7 @@ votes green,votes red,votes yellow{
 
 
 h5.question_text{
+  /*background-color: #39444b;*/
   background-color: #39444b;
   color: white;
   font-size: 20px;
@@ -364,7 +396,8 @@ h4, .h4, h5, .h5, h6, .h6 {
 }
 
 .navbar{
-  background-color: #1ea49d;
+/*  background-color: #1ea49d;
+  background-color: #39444b;*/
 }
 
 .vote-swipe {
