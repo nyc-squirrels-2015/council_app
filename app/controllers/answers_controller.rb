@@ -16,7 +16,10 @@ class AnswersController < ApplicationController
     @question.answers.build(answer_params)
     if @question.save
       flash.notice = "Thanks for voting!"
-      redirect_to inboxs_path
+      redirect_to user_path(current_user)
+    else
+      flash.notice = "There was a problem with your vote."
+      redirect_to question_path(@question)
     end
   end
 
