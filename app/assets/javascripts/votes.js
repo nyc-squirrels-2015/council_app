@@ -116,6 +116,7 @@ $( document ).ready(function() {
 
   });
 
+
   $('#council_membership_form form').on('submit', function(event){
     event.preventDefault();
     var url = $(this).attr('action');
@@ -131,7 +132,9 @@ $( document ).ready(function() {
     })
   });
 
-$("#friend_form form").on('submit', function(event){
+
+  $("#friend_form form").on('submit', function(event){
+
     event.preventDefault();
     var url = $(this).attr('action');
     var data = $(this).serialize();
@@ -146,6 +149,5 @@ $("#friend_form form").on('submit', function(event){
         console.log("Error");
       }
     })
-  });
-
+  })
 });
