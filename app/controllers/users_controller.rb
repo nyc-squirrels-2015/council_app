@@ -12,7 +12,8 @@ class UsersController < ApplicationController
       set_session
       redirect_to user_path(@user)
     else
-      flash[:error] = 'Field cannot be left blank.'
+      usual_error = find_in_errors(@user, "can't be blank")
+      flash[:error] = usual_error ? 'Field cannot be left blank.' : 'The user account could not be created.'
       redirect_to root_path
     end
   end
@@ -34,7 +35,8 @@ class UsersController < ApplicationController
     if @user.update_attributes user_params
       redirect_to user_path(@user)
     else
-      flash[:error] = 'Field cannot be left blank.'
+      usual_error = find_in_errors(@user, "can't be blank")
+      flash[:error] = usual_error ? 'Field cannot be left blank.' : 'The user information could not be updated.'
       render :edit
     end
   end

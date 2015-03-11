@@ -21,7 +21,8 @@ class QuestionsController < ApplicationController
       send_notification(@question.content, "New Question")
       redirect_to question_path(@question)
     else
-      flash[:error] = 'Field cannot be left blank.'
+      usual_error = find_in_errors(@question, "can't be blank")
+      flash[:error] = usual_error ? 'Field cannot be left blank.' : 'The question could not be created.'
       redirect_to new_question_path
     end
   end
