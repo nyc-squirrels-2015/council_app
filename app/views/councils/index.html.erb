@@ -4,7 +4,7 @@
   <%= render partial: 'form' , locals: {council: Council.new}%>
 
   <% @councils.each do |council| %>
-    <%= link_to council.council_name, council_path(council) %><br>
+    <h4 class="center"><%= link_to council.council_name, council_path(council) %></h4><br>
   <% end %>
 </div>
 <a href="/questions/new"><div class="btn btn-logo"></div></a>
