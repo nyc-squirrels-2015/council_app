@@ -110,11 +110,12 @@ $( document ).ready(function() {
         $( "#councils_list" ).prepend( "<li><a href=/councils/"+response.id+ ">" + response.council_name +"</a></li>" );
       },
       error: function(response){
-        console.log("error")
+        console.log("Error")
       }
     })
 
   });
+
 
   $('#council_membership_form form').on('submit', function(event){
     event.preventDefault();
@@ -130,4 +131,23 @@ $( document ).ready(function() {
       }
     })
   });
+
+
+  $("#friend_form form").on('submit', function(event){
+
+    event.preventDefault();
+    var url = $(this).attr('action');
+    var data = $(this).serialize();
+    $.ajax({
+      type: "post",
+      url: url,
+      data: data,
+      success: function(response){
+        $(".invite_list").prepend("<li><a href=/friendships/" + response.id + ">" + response.firstname + " " + response.lastname +"</a></li>");
+      },
+      error: function(response){
+        console.log("Error");
+      }
+    })
+  })
 });

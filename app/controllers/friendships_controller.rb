@@ -5,9 +5,17 @@ class FriendshipsController < ApplicationController
   end
 
   def create
-   @friendship = Friendship.create(user_id: current_user.id, friend_id: find_friend_id(params[:email]))
-   send_notification(@friendship.user.firstname, "Invite for friendship")
-   redirect_to friendship_path(@friendship)
+     @friendship = Friendship.create(user_id: current_user.id, friend_id: find_friend_id(params[:email]))
+     if @friendship
+      if request.xhr?
+        send_notification(@friendship.user.firstname, "Invite for friendship")
+        @invite = Friendship.where(friend_id: current_user.id).where(status: false)
+        render :json => @friendship
+      else
+       redirect_to friendship_path(@friendship)
+      end
+    end
+
   end
 
   def new

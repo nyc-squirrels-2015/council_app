@@ -1,6 +1,10 @@
-<div class = "page-center invite_list"
+
+<div class = "page-center">
+<ul class = "invite_list">
 
   <% @invites.each do |invite| %>
         <%= link_to "#{invite.user.firstname} #{invite.user.lastname}", friendship_path(invite) %><br>
   <% end %>
 </div>
+
+<div >
