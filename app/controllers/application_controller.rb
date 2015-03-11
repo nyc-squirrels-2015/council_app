@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def is_authenticated?
-    !!session[:user_id]
+     !!current_user
   end
 
   def require_login
