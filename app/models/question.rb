@@ -6,7 +6,7 @@ class Question < ActiveRecord::Base
      :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
 
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
-  
+
   validates :council_id, :user_id, :content, presence: true
 
   def s3_credentials
@@ -24,6 +24,24 @@ class Question < ActiveRecord::Base
 
   def already_answered(user_id)
     !!answers.find_by(user_id: user_id)
+  end
+
+  def self.for_user_and_councils(user_id, council_ids)
+
+    format_council_ids = " ( #{council_ids.join(',')} )"
+
+    base_query = "SELECT * from questions WHERE questions.user_id = #{user_id} "
+
+    con_query ="OR questions.council_id in (#{      format_council_ids}) "
+
+    order_by = "order by created_at DESC"
+
+
+    query = base_query + ( council_ids.empty? ? '' : con_query ) + order_by
+
+    Question.find_by_sql(query)
+
+
   end
 
 end
