@@ -25,6 +25,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def find_in_errors(obj, str)
+    !!(obj.errors.full_messages.join(' ') =~ /#{Regexp.quote(str)}/)
+  end
 
   def send_notification(option, content)
     client = Rushover::Client.new(ENV["RUSHOVER_CLIENT"])
