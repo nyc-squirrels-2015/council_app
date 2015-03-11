@@ -1,5 +1,5 @@
-<%= form_for :council do |f| %>
-  <%= f.text_field :council_name,  placeholder: "Council Name"  %>
+<%= form_for :council, :class => "margin-auto", remote: true do |f| %>
+  <%= f.text_field :council_name,  placeholder: "Council Name"  %><br>
    <%= f.submit %>
 <% end %>
 
