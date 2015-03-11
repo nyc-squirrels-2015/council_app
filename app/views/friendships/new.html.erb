@@ -1,11 +1,13 @@
-<h2>Friend's Dashboard</h2>
-<p>Find a friend to add:</p>
+<h2 class="center">Friend's Dashboard</h2>
+<h5 class="center">Find a friend to add:</h5>
 
-<%= form_tag("/friendships", method: "post") do %>
-  <%= label_tag(:email, "Email:") %>
-  <%= text_field_tag(:email, nil, placeholder: 'Email') %>
-  <%= submit_tag("Search") %>
-<% end %>
+<div class="page-center">
+  <%= form_tag("/friendships", method: "post") do %>
+    <%= label_tag(:email, "Email:") %>
+    <%= text_field_tag(:email, nil, placeholder: 'Email') %>
+    <%= submit_tag("Search") %>
+  <% end %>
 
-<p>Pending friend requests:</p>
-<%= render "friend_requests" %>
+  <h3>Pending friend requests:</h3>
+  <%= render "friend_requests" %>
+</div>
