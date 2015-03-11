@@ -2,9 +2,9 @@
 <h5 class="center">Find a friend to add:</h5>
 
 <div class="page-center" id="friend_form">
-  <%= form_tag("/friendships", method: "post") do %>
+  <%= form_tag("/friendships", method: "post", class: "center") do %>
     <%= label_tag(:email, "Email:") %>
-    <%= text_field_tag(:email, nil, placeholder: 'Email') %>
+    <%= text_field_tag(:email, nil, placeholder: 'Email') %><br>
     <%= submit_tag("Search") %>
   <% end %>
   <h3>Pending friend requests:</h3>
