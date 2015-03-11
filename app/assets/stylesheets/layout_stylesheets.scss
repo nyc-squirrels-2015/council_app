@@ -16,7 +16,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  bottom-padding:20px; 
+  bottom-padding:20px;
   background-color: #1EA49D;
   color: white;
   height: 48px;
@@ -43,8 +43,10 @@
 
 .nav_rt{
   position: absolute;
-  right:0; top: 0; bottom: 0; 
+  right:0; top: 0; bottom: 0;
   padding-right: 5px;
+  right:0; top: 0; bottom: 0;
+  /*padding: 5px;*/
 }
 
 
@@ -279,13 +281,20 @@ th{
 
 .btn.btn-logo{
   position: fixed;
+  left: 40%;
   bottom: 0;
-  height: 57px;
-  width: 57px;
-  background-image: url("/council-logo2.png");
-  background-size: 57px 57px;
-  left: 50%;
-
+  height: 80px;
+  width: 80px;
+  margin-bottom: 10px;
+  border: solid white 2px;
+  background-image: url("/myicon.png");
+  background-size: 80px 80px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 2.0);
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 2.0);
+  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 2.0);
 }
 
 .btn.btn-logo  img {
@@ -338,6 +347,7 @@ votes green,votes red,votes yellow{
   padding: 5px;
   display: table;
   margin: 0 auto;
+  margin-top: 70px;
 }
 
 .notice {
@@ -416,7 +426,9 @@ a:hover {
 }
 
 .margin-center {
-  margin: 0 auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .button_to {
