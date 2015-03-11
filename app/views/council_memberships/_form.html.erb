@@ -1,10 +1,8 @@
 <h1>Add member to </h1>
-<%= form_for :council_membership, url: {controller: 'council_memberships',action: 'create'} do |f| %>
-      <select name="council_membership[council_id]">
-        <% current_user.councils.each do |council| %>
-          <option value=<%=council.id%>><%= council.council_name %></option>
-        <% end %>
-      </select>
+
+<%= form_for :council_membership, url: {controller: 'council_memberships',action: 'create'} , remote: true do |f| %>
+
+      <%= hidden_field_tag(:"council_membership[council_id]", @council.id ) %>
       <select name="council_membership[user_id]">
         <% current_user.friends.each do |friend| %>
           <option value=<%=friend.id%>><%= friend.firstname %></option>
