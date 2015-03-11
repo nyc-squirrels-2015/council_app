@@ -8,11 +8,18 @@ class CouncilMembershipsController < ApplicationController
     @council_membership = CouncilMembership.new
   end
 
-  def create
-    @council_membership = CouncilMembership.where(council_membership_params).first_or_create
-    if @council_membership.save
-      send_notification("#{current_user.firstname}'s you to member #{@council_membership.council.council_name}", 'Council' )
-      redirect_to councils_path
+	def create
+		@council_membership = CouncilMembership.where(council_membership_params).first_or_create
+    if @council_membership
+      if request.xhr?
+        flash[:notice] = 'Added to list'
+        send_notification("#{current_user.firstname}'s you to member #{@council_membership.council.council_name}", 'Council' )
+        render :json => @council_membership.council.members
+      else
+
+        send_notification("#{current_user.firstname}'s you to member #{@council_membership.council.council_name}", 'Council' )
+        redirect_to councils_path
+      end
     else
       flash[:error] = 'Field cannot be left blank.'
       render :new

@@ -12,6 +12,7 @@ class CouncilsController < ApplicationController
     @council = Council.where(council_params).first_or_create
     if @council.save
       if request.xhr?
+        flash[:notice] = 'Added to list'
         render :json => @council
       else
       flash[:notice] = 'Added to list'
