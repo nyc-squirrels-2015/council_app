@@ -147,4 +147,5 @@ $("#friend_form form").on('submit', function(event){
       }
     })
   });
+
 });
