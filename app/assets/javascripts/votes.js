@@ -143,7 +143,7 @@ $( document ).ready(function() {
       url: url,
       data: data,
       success: function(response){
-        $(".invite_list").prepend("<li><a href=/friendships/" + response.id + ">" + response.firstname + " " + response.lastname +"</a></li>");
+        $(".invite_list").empty()
       },
       error: function(response){
         console.log("Error");
@@ -151,3 +151,5 @@ $( document ).ready(function() {
     })
   })
 });
+
+// prepend("<li><a href=/friendships/" + response.id + ">" + response.firstname + " " + response.lastname +"</a></li>");
