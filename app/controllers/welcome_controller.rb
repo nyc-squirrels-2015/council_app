@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
-	def index
+  def index
     @user = User.new
     render :layout => false
-	end
+  end
 end
