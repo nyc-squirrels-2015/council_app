@@ -1,9 +1,10 @@
-<% if @friendship.user.id != current_user.id %>
-<%= @friendship.user.firstname %> <%= @friendship.user.lastname %>
-wants to be friends with
-<%= @friendship.friend.firstname %> <%= @friendship.friend.lastname %>
-<%= button_to 'Confirm', confirm_path(@friendship.id), method: :put %>
-<% else %>
-<h5>Invite Send to</h5>
-<%= @friendship.friend.firstname %> <%= @friendship.friend.lastname %>
-<% end %>
+<div class="page-center">
+  <% if @friendship.user.id != current_user.id %>
+  <strong><%= @friendship.user.firstname %> <%= @friendship.user.lastname %></strong>
+  wants to be friends
+  <%= button_to 'Confirm', confirm_path(@friendship.id), method: :put %>
+  <% else %>
+  <h5>Invite Send to</h5>
+  <%= @friendship.friend.firstname %> <%= @friendship.friend.lastname %>
+  <% end %>
+</div>
