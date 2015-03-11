@@ -19,7 +19,9 @@ class CouncilsController < ApplicationController
       redirect_to councils_path
       end
     else
-      flash[:error] = 'Field cannot be left blank.'
+      usual_error = find_in_errors(@council, "can't be blank")
+      flash[:error] = usual_error ? 'Field cannot be left blank.' : 'The council could not be created.'
+
       render :new
     end
   end
