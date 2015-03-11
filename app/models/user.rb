@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   has_many :attended_councils, class_name: 'Council', through: :council_memberships, source: :council
 
   validates :firstname, :lastname, :email, presence: true
+
 end
