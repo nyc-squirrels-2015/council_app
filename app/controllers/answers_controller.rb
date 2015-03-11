@@ -1,16 +1,16 @@
 class AnswersController < ApplicationController
 
-	def index
-		 @answers = Answer.all
-	end
+  def index
+     @answers = Answer.all
+  end
 
-	def new
-		@answer = Answer.new
-		@question = Question.find(params[:question_id])
-		@user = current_user
-	end
+  def new
+    @answer = Answer.new
+    @question = Question.find(params[:question_id])
+    @user = current_user
+  end
 
-	def create
+  def create
 
     @question = Question.find(params[:question_id])
     @question.answers.build(answer_params)
@@ -26,6 +26,6 @@ class AnswersController < ApplicationController
   private
 
   def answer_params
- 	  params.require(:answer).permit(:like).merge(user_id: current_user.id)
+     params.require(:answer).permit(:like).merge(user_id: current_user.id)
   end
 end
