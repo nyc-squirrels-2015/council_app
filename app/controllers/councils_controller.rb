@@ -12,15 +12,11 @@ class CouncilsController < ApplicationController
     @council = Council.where(council_params).first_or_create
     if @council
       if request.xhr?
-        flash[:notice] = 'Added to list'
         render :json => @council
       else
-      flash[:notice] = 'Added to list'
-      redirect_to councils_path
+        flash[:notice] = 'Added to list'
+        redirect_to councils_path
       end
-
-      flash[:notice] = 'Added to list'
-      redirect_to councils_path
 
     else
       usual_error = find_in_errors(@council, "can't be blank")
