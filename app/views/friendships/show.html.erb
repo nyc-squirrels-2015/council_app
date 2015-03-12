@@ -4,7 +4,6 @@
   wants to be friends
   <%= button_to 'Confirm', confirm_path(@friendship.id), method: :put %>
   <% else %>
-  <h5>Invite Send to</h5>
-  <%= @friendship.friend.firstname %> <%= @friendship.friend.lastname %>
+  <h5>Invite sent to <strong><%= @friendship.friend.firstname %> <%= @friendship.friend.lastname %></strong></h5>
   <% end %>
 </div>

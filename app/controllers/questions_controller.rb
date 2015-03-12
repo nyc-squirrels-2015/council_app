@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     Question.find(params[:id]).destroy
-    redirect_to questions_path
+    redirect_to user_path(current_user)
   end
 
 private
