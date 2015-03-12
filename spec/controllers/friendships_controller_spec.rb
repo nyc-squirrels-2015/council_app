@@ -3,7 +3,7 @@ require 'rails_helper'
 describe FriendshipsController do
   let(:user) {FactoryGirl.create :user}
   let(:friend) {FactoryGirl.create :user}
-  let(:friendship) { Friendship.create(user_id: :user, friend_id: friend.id) }
+  let(:friendship) { Friendship.create(user: user, friend_id: friend.id) }
 
   before do
     stub_current_user user
@@ -32,10 +32,10 @@ describe FriendshipsController do
 
   describe "#create" do
     it "creates the friendship if valid params" do
-       post :create, friend: {
-        email: 'jay@example.com',
-        user_id: user
-      }
+      user.email = 'brillig@example.com'
+      user.save
+
+      post :create, email: 'brillig@example.com', user_id: user.id
 
       expect(response).to be_redirect
     end
