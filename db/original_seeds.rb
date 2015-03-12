@@ -6,81 +6,82 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-steven = User.create!(email:'steven@example.com', firstname:'Steven',lastname:'cassidy', password:'1', prof_pic: '/steven.jpeg')
-missy  = User.create!(email:'missy@example.com', firstname:'Missy', lastname: 'wimberly', password:'1', prof_pic: '/coverpicture.JPG')
-sagar  = User.create!(email:'sagar@example.com', firstname:'Sagar', lastname: 'rathi', password:'1', prof_pic: '/sagar.jpeg')
-jay    = User.create!(email:'jay@example.com', firstname:'Jay', lastname: 'davis', password:'1', prof_pic: '/jay.jpeg')
-anna   = User.create!(email:'anna@example.com', firstname:'Anna', lastname: 'taberski', password:'1', prof_pic: '/anna.jpeg')
+steven = User.create!(email:'steven@gmail.com', firstname:'Steven',lastname:'Cassidy', password:'1', prof_pic: '/steven.jpeg')
+missy  = User.create!(email:'missy@gmail.com', firstname:'Missy', lastname: 'Wimberly', password:'1', prof_pic: '/coverpicture.JPG')
+sagar  = User.create!(email:'sagar@gmail.com', firstname:'Sagar', lastname: 'Rathi', password:'1', prof_pic: '/sagar.jpeg')
+jay    = User.create!(email:'jay@gmail.com', firstname:'Jay', lastname: 'Davis', password:'1', prof_pic: '/jay.jpeg')
+anna   = User.create!(email:'anna@gmail.com', firstname:'Anna', lastname: 'Taberski', password:'1', prof_pic: '/anna.jpeg')
 
-steven.friends << missy
-missy.friends << sagar
-missy.friends << anna
-missy.friends << jay
-missy.friends << steven
-jay.friends << anna
-sagar.friends << jay
 
-cou = Council.create!(user:steven, council_name:"Steven's trusted advisors")
-cou.members << missy
-cou.members << sagar
+anna.friends << missy
+anna.friends << sagar
+anna.friends << jay
+anna.friends << steven
 
-mcou = Council.create!(user:missy, council_name:"Missy's pals")
+
+mcou = Council.create!(user:missy, council_name:"Fashion")
 mcou.members << sagar
 mcou.members << jay
+mcou.members << anna
 
-jcou = Council.create!(user:jay, council_name:"Apartment Council")
+jcou = Council.create!(user:jay, council_name:"Pets")
 jcou.members << missy
 jcou.members << anna
 
-acou = Council.create!(user:anna, council_name:"Spring Council")
+acou = Council.create!(user:anna, council_name:"Food")
 acou.members << missy
 acou.members << sagar
+acou.members << jay
+acou.members << steven
 
-scou = Council.create!(user:sagar, council_name:"Travel")
+
+aacou = Council.create!(user:anna, council_name:"Costumes")
+aacou.members << missy
+aacou.members << sagar
+aacou.members << jay
+aacou.members << steven
+
+scou = Council.create!(user:sagar, council_name:"Weddings")
 scou.members << jay
 scou.members << steven
+scou.members << anna
 
-dinner = missy.questions.create!(council: mcou, content:'Good dinner?')
+dinner = anna.questions.create!(council: acou, content:'Good dinner?')
 dinner.image = File.open("/Users/melissawimberly/Desktop/food.jpg")
 dinner.save!
 dinner.answers.create!(user:sagar, like: true)
+dinner.answers.create!(user:jay, like: true)
+dinner.answers.create!(user:missy, like: true)
+dinner.answers.create!(user:steven, like: false)
 
-hat =  steven.questions.build(council: cou, content:'Do you like this dress?')
-hat.image = File.open('/Users/melissawimberly/Desktop/coverpicture.JPG');
-hat.save!
-hat.answers.create!(user:steven, like: true)
+dress =  missy.questions.build(council: mcou, content:'Do you like this dress?')
+dress.image = File.open('/Users/melissawimberly/Desktop/coverpicture.JPG');
+dress.save!
+dress.answers.create!(user:steven, like: true)
 
-restaurant =  steven.questions.create!(council: cou, content:'Do you like this store?')
-restaurant.image = File.open("/Users/melissawimberly/Desktop/store.JPG")
-restaurant.save!
-restaurant.answers.create!(user:steven, like:true)
 
-park = steven.questions.create!(council: cou, content:'picnic time?')
+park = jay.questions.create!(council: jcou, content:'picnic time?')
 park.image = File.open("/Users/melissawimberly/Desktop/park.JPG")
 park.save!
 park.answers.create!(user:steven, like:true)
 
-tech = steven.questions.create!(council: cou, content:"Should I buy this iphone?")
-tech.image = File.open("/Users/melissawimberly/Desktop/phone.jpg")
-tech.save!
-tech.answers.create!(user:steven, like:false)
 
 destination =  sagar.questions.create!(council: scou, content:'Should I take a swim after?')
 destination.image = File.open("/Users/melissawimberly/Desktop/seine.jpg")
 destination.save!
 destination.answers.create!(user:steven, like:true)
 
-apartment = jay.questions.create!(council: jcou, content:"Should I rent this apartment?")
-apartment.image = File.open("/Users/melissawimberly/Desktop/wilde.jpg")
-apartment.save!
-apartment.answers.create!(user:jay, like:true)
+dog = jay.questions.create!(council: jcou, content:"Should I trust this dog?")
+dog.image = File.open("/Users/melissawimberly/Desktop/jay_dog.JPG")
+dog.save!
+dog.answers.create!(user:anna, like:true)
 
 spring = anna.questions.create!(council: acou, content: "Is it spring yet?")
 spring.image = File.open("/Users/melissawimberly/Desktop/spring.jpg")
 spring.save!
-spring.answers.create!(user:anna, like: true)
+spring.answers.create!(user:missy, like: true)
 
-cute = missy.questions.build(council: mcou, content:"Is he cute?")
-cute.image = File.open('/Users/melissawimberly/Desktop/sparta.JPG');
-cute.save!
-cute.answers.create!(user: missy, like: true)
+wedding = sagar.questions.create!(council: scou, content: "Should I marry her?")
+wedding.image = File.open("/Users/melissawimberly/Desktop/sagar_wedding.png")
+wedding.save!
+wedding.answers.create!(user:missy, like: true)
