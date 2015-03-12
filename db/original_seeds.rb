@@ -6,11 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-steven = User.create!(email:'steven@example.com', firstname:'Steven',lastname:'cassidy', password:'1')
-missy  = User.create!(email:'missy@example.com', firstname:'Missy', lastname: 'wimberly', password:'1')
-sagar  = User.create!(email:'sagar@example.com', firstname:'Sagar', lastname: 'rathi', password:'1')
-jay    = User.create!(email:'jay@example.com', firstname:'Jay', lastname: 'davis', password:'1')
-anna   = User.create!(email:'anna@example.com', firstname:'Anna', lastname: 'taberski', password:'1')
+steven = User.create!(email:'steven@example.com', firstname:'Steven',lastname:'cassidy', password:'1', prof_pic: '/steven.jpeg')
+missy  = User.create!(email:'missy@example.com', firstname:'Missy', lastname: 'wimberly', password:'1', prof_pic: '/coverpicture.JPG')
+sagar  = User.create!(email:'sagar@example.com', firstname:'Sagar', lastname: 'rathi', password:'1', prof_pic: '/sagar.jpeg')
+jay    = User.create!(email:'jay@example.com', firstname:'Jay', lastname: 'davis', password:'1', prof_pic: '/jay.jpeg')
+anna   = User.create!(email:'anna@example.com', firstname:'Anna', lastname: 'taberski', password:'1', prof_pic: '/anna.jpeg')
 
 steven.friends << missy
 missy.friends << sagar
