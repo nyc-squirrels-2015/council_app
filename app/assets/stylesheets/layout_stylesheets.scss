@@ -476,3 +476,17 @@ form input[type="text"] {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.wiggle{
+  
+}
+
+.profile_pic{
+  position: relative;
+  height: 35px;
+  width: 35px;
+  z-index: 100;
+  border-radius: 30%;
+  /*right: 0;*/
+  float:right;
+}

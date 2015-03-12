@@ -1,9 +1,9 @@
 User.create!([
-  {id: 1, firstname: "Steven", lastname: "cassidy", email: "steven@example.com", password_digest: "$2a$10$M8FpJtRbPpiZskLuD137JuJiH5/0lz4sCaMoeTRgHMRheiEPowddK", created_at: "2015-03-10 11:21:09", updated_at: "2015-03-10 11:21:09"},
-  {id: 2, firstname: "Missy", lastname: "wimberly", email: "missy@example.com", password_digest: "$2a$10$obWCS1wQB6kWKPoVs49Wl.cVdnUQDbvPVi6DAtNXaDmUeCOUowcPi", created_at: "2015-03-10 11:21:09", updated_at: "2015-03-10 11:21:09"},
-  {id: 3, firstname: "Sagar", lastname: "rathi", email: "sagar@example.com", password_digest: "$2a$10$wsxLX9vsqudtfZuhQ3wOh.ZmfWV/asMGHV6/.Pfpudfd2Ht.IRPG2", created_at: "2015-03-10 11:21:09", updated_at: "2015-03-10 11:21:09"},
-  {id: 4, firstname: "Jay", lastname: "davis", email: "jay@example.com", password_digest: "$2a$10$z42hQotub.vuUonOiwp1S.m2ysBe/hl7IzqZU6slbjRkD1tB/wn0W", created_at: "2015-03-10 11:21:09", updated_at: "2015-03-10 11:21:09"},
-  {id: 5, firstname: "Anna", lastname: "taberski", email: "anna@example.com", password_digest: "$2a$10$c1oEONE46guVbsyfP/imDeAaNlMfmNBfFAQNhpZhp3P0dB7pdOaJ6", created_at: "2015-03-10 11:21:09", updated_at: "2015-03-10 11:21:09"}
+  {id: 1, firstname: "Steven", lastname: "cassidy", email: "steven@example.com", password_digest: "$2a$10$M8FpJtRbPpiZskLuD137JuJiH5/0lz4sCaMoeTRgHMRheiEPowddK", created_at: "2015-03-10 11:21:09", updated_at: "2015-03-10 11:21:09", prof_pic: '/steven.jpeg'},
+  {id: 2, firstname: "Missy", lastname: "wimberly", email: "missy@example.com", password_digest: "$2a$10$obWCS1wQB6kWKPoVs49Wl.cVdnUQDbvPVi6DAtNXaDmUeCOUowcPi", created_at: "2015-03-10 11:21:09", updated_at: "2015-03-10 11:21:09", prof_pic: '/coverpicture.JPG'},
+  {id: 3, firstname: "Sagar", lastname: "rathi", email: "sagar@example.com", password_digest: "$2a$10$wsxLX9vsqudtfZuhQ3wOh.ZmfWV/asMGHV6/.Pfpudfd2Ht.IRPG2", created_at: "2015-03-10 11:21:09", updated_at: "2015-03-10 11:21:09", prof_pic: '/sagar.jpeg'},
+  {id: 4, firstname: "Jay", lastname: "davis", email: "jay@example.com", password_digest: "$2a$10$z42hQotub.vuUonOiwp1S.m2ysBe/hl7IzqZU6slbjRkD1tB/wn0W", created_at: "2015-03-10 11:21:09", updated_at: "2015-03-10 11:21:09", prof_pic: '/jay.jpeg'},
+  {id: 5, firstname: "Anna", lastname: "taberski", email: "anna@example.com", password_digest: "$2a$10$c1oEONE46guVbsyfP/imDeAaNlMfmNBfFAQNhpZhp3P0dB7pdOaJ6", created_at: "2015-03-10 11:21:09", updated_at: "2015-03-10 11:21:09", prof_pic: '/anna.jpeg'}
 ])
 
 Council.create!([
