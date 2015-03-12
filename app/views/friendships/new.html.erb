@@ -17,14 +17,12 @@
     $.ajax('/friendships', {
       data: data,
       type: 'POST'
-    })
-      .then(function(response) {
+    }).then(function(response) {
         var friendship = response.friendship
         var invites = response.invite
-        console.log(invites)
-       $(".invite_list").empty()
+       $("#friendship_list").empty()
        for(var i=0; i < invites.length; i++){
-        $(".invite_list").append("<li><a href=/friendships/" + friendship.id + ">"+invites[i].user.firstname+ " " +invites[i].user.lastname+"</a></li>");
+        $("#friendship_list").append("<a href=/friendships/" + friendship.id + ">"+invites[i].user.firstname+ " " +invites[i].user.lastname+"</a><br>");
         }
       })
   } )
