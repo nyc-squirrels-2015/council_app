@@ -1,20 +1,5 @@
-<%= form_for :council, html: {:class => "margin-auto center"}, remote: true do |f| %>
+<%= form_for :council, html: {:class => "margin-auto center"} do|f| %>
 
   <%= f.text_field :council_name,  placeholder: "Council Name"  %><br>
    <%= f.submit %>
 <% end %>
-
-<script type="text/javascript">
-  $("#council_form form").on('submit', function(event) {
-    var data = $(this).serialize();
-
-    $.ajax('/councils', {
-      data: data,
-      type: 'POST'
-    })
-      .then(function(data) {
-         $( "#councils_list" ).prepend( "<li><a href=/councils/"+response.id+ ">" + response.council_name +"</a></li>" );
-      })
-  } )
-</script>
-
