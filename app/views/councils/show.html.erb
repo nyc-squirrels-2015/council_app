@@ -5,18 +5,18 @@
   <div id='council_membership_form'>
     <%= render partial: '/council_memberships/form' , locals: {council_membership: CouncilMembership.new}%>
   </div>
-  <div id='council_member'>
-    <ul class="member_list">
+  <div id='council_member' class="council_ajax">
+
     <% if @council.members.count == 0 %>
       <h5 class="no-members-error">There are no members in this council</h5>
     <% else %>
       <% @council.members.each do |member|%>
-      <li>
-        <%= member.firstname %> <%= member.lastname %>
-        </li>
+
+        <h4 class='center'><%= member.firstname %> <%= member.lastname %></h4><br>
+
       <% end %>
     <% end %>
-    </ul>
+
   </div>
 
 </div>
@@ -32,9 +32,9 @@
     })
       .then(function(response) {
         var members = response
-       $(".member_list").empty()
+       $(".council_ajax").empty()
        for(var i=0; i < members.length; i++){
-        $(".member_list").append("<li>"+ members[i].firstname +" "+ members[i].lastname+"</li>");
+        $(".council_ajax").append("<h4 class='center'>"+ members[i].firstname +" "+ members[i].lastname+"</h4><br>");
        }
       })
   } )
