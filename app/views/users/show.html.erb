@@ -3,19 +3,19 @@
     <% @questions.each do |question| %>
         <% if current_user == question.user %>
             <% if question.answers.count == 0 %>
-                <h5 class="question_text center"><i class="fa fa-spinner white_icon wiggle"></i> <%= question.content %></h5>
+                <h5 class="question_text center"><i class="fa fa-spinner white_icon wiggle"></i> <%= question.content %><%= image_tag(question.user.prof_pic, width:"100%", :class => "profile_pic") %></h5>
             <% else %>
               <% if question.up_percentage > 50 %>
-                    <h5 class="question_text center"><i class="fa fa-heart white_icon wiggle"></i>&nbsp;</i><%= question.content %></h5>
+                    <h5 class="question_text center"><i class="fa fa-heart white_icon wiggle"></i>&nbsp;</i><%= question.content %><%= image_tag(question.user.prof_pic, width:"100%", :class => "profile_pic") %></h5>
               <% elsif question.up_percentage < 50 %>
-                    <h5 class="question_text center"><i class="fa fa-times white_icon wiggle"></i><%= question.content %></h5>
+                    <h5 class="question_text center"><i class="fa fa-times white_icon wiggle"></i><%= question.content %><%= image_tag(question.user.prof_pic, width:"100%", :class => "profile_pic") %></h5>
               <% else %>
-                    <h5 class="question_text center"><i class="fa fa-meh-o white_icon wiggle"></i><%= question.content %></h5>
+                    <h5 class="question_text center"><i class="fa fa-meh-o white_icon wiggle"></i><%= question.content %><%= image_tag(question.user.prof_pic, width:"100%", :class => "profile_pic") %></h5>
               <% end %>
             <% end %>
 
          <% else %>
-            <h5 class="question_text center"><i class="fa fa-question-circle white_icon wiggle">&nbsp;</i><%= question.content %></h5>
+            <h5 class="question_text center"><i class="fa fa-question-circle white_icon wiggle">&nbsp;</i><%= question.content %><%= image_tag(question.user.prof_pic, width:"100%", :class => "profile_pic") %></h5>
           <% end %>
   </div>
         <%= link_to(image_tag(question.image, width:"100%", :class => "img_preview"), question_path(question)) %>
