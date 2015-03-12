@@ -22,9 +22,6 @@
     <% end %>
 </div>
 
-  <p class="center">
-    <%= @question.content  %>
-  </p>
 
   <br>
     <%= image_tag @question.image.url(:medium), :class=> 'vote-swipe margin-center', :data => { action: @action }%>
