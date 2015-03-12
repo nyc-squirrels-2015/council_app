@@ -4,6 +4,6 @@ class Council < ActiveRecord::Base
   has_many :members, through: :council_memberships
   has_many :questions
 
-  validates :council_name, uniqueness: true, presence: true
+  validates :council_name, presence: true
   validates :user_id, presence: true
 end
