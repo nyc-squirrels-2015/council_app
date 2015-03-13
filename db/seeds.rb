@@ -1,87 +1,68 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+User.create!([
+  {id: 1, firstname: "Steven", lastname: "Cassidy", email: "steven@gmail.com", password_digest: "$2a$10$wonZV.Lqn3bfk56uQPc4AejjwIlj.KQz4CtaWohhlq02p1dbsEBSO", prof_pic: "/steven.jpeg", created_at: "2015-03-13 00:06:48", updated_at: "2015-03-13 00:06:48"},
+  {id: 2, firstname: "Missy", lastname: "Wimberly", email: "missy@gmail.com", password_digest: "$2a$10$2EgtPT8FrAUT2X7nlRyw2u2Af1MR6x4uzYbWLSBa.GMQhoTnuKneu", prof_pic: "/coverpicture.JPG", created_at: "2015-03-13 00:06:48", updated_at: "2015-03-13 00:06:48"},
+  {id: 3, firstname: "Sagar", lastname: "Rathi", email: "sagar@gmail.com", password_digest: "$2a$10$ci/Jg7b6u7FZya2B4m0ETugKAV8qG4kuQhqrXBBi5iVxmzgbMN0CO", prof_pic: "/sagar.jpeg", created_at: "2015-03-13 00:06:48", updated_at: "2015-03-13 00:06:48"},
+  {id: 4, firstname: "Jay", lastname: "Davis", email: "jay@gmail.com", password_digest: "$2a$10$xIbBs5Tp/xIUbqfWwALDyuOL8wBkaBspsxggK6Hko1Ga.Zzp3TLk2", prof_pic: "/jay.jpeg", created_at: "2015-03-13 00:06:49", updated_at: "2015-03-13 00:06:49"},
+  {id: 5, firstname: "Anna", lastname: "Taberski", email: "anna@gmail.com", password_digest: "$2a$10$O4TkisTHotM23vHZZ.5GlOHzTwb8DebxfSJEmViiRkpEpdjKmhIZm", prof_pic: "/anna.jpeg", created_at: "2015-03-13 00:06:49", updated_at: "2015-03-13 00:06:49"}
+])
 
-steven = User.create!(email:'steven@gmail.com', firstname:'Steven',lastname:'Cassidy', password:'1', prof_pic: '/steven.jpeg')
-missy  = User.create!(email:'missy@gmail.com', firstname:'Missy', lastname: 'Wimberly', password:'1', prof_pic: '/coverpicture.JPG')
-sagar  = User.create!(email:'sagar@gmail.com', firstname:'Sagar', lastname: 'Rathi', password:'1', prof_pic: '/sagar.jpeg')
-jay    = User.create!(email:'jay@gmail.com', firstname:'Jay', lastname: 'Davis', password:'1', prof_pic: '/jay.jpeg')
-anna   = User.create!(email:'anna@gmail.com', firstname:'Anna', lastname: 'Taberski', password:'1', prof_pic: '/anna.jpeg')
-
-
-anna.friends << missy
-anna.friends << sagar
-anna.friends << jay
-anna.friends << steven
+Council.create!([
+  {id: 1, user_id: 2, council_name: "Fashion", created_at: "2015-03-13 00:06:49", updated_at: "2015-03-13 00:06:49"},
+  {id: 2, user_id: 4, council_name: "Pets", created_at: "2015-03-13 00:06:49", updated_at: "2015-03-13 00:06:49"},
+  {id: 3, user_id: 5, council_name: "Food", created_at: "2015-03-13 00:06:49", updated_at: "2015-03-13 00:06:49"},
+  {id: 4, user_id: 5, council_name: "Costumes", created_at: "2015-03-13 00:06:49", updated_at: "2015-03-13 00:06:49"},
+  {id: 5, user_id: 3, council_name: "Weddings", created_at: "2015-03-13 00:06:49", updated_at: "2015-03-13 00:06:49"}
+])
 
 
-mcou = Council.create!(user:missy, council_name:"Fashion")
-mcou.members << sagar
-mcou.members << jay
-mcou.members << anna
+CouncilMembership.create!([
+  {id: 1, user_id: 3, council_id: 1},
+  {id: 2, user_id: 4, council_id: 1},
+  {id: 3, user_id: 5, council_id: 1},
+  {id: 4, user_id: 2, council_id: 2},
+  {id: 5, user_id: 5, council_id: 2},
+  {id: 6, user_id: 2, council_id: 3},
+  {id: 7, user_id: 3, council_id: 3},
+  {id: 8, user_id: 4, council_id: 3},
+  {id: 9, user_id: 1, council_id: 3},
+  {id: 10, user_id: 2, council_id: 4},
+  {id: 11, user_id: 3, council_id: 4},
+  {id: 12, user_id: 4, council_id: 4},
+  {id: 13, user_id: 1, council_id: 4},
+  {id: 14, user_id: 4, council_id: 5},
+  {id: 15, user_id: 1, council_id: 5},
+  {id: 16, user_id: 5, council_id: 5}
+])
 
-jcou = Council.create!(user:jay, council_name:"Pets")
-jcou.members << missy
-jcou.members << anna
+Friendship.create!([
+  {id: 1, user_id: 5, friend_id: 2, created_at: "2015-03-13 00:06:49", updated_at: "2015-03-13 00:06:49", status: false},
+  {id: 2, user_id: 5, friend_id: 3, created_at: "2015-03-13 00:06:49", updated_at: "2015-03-13 00:06:49", status: false},
+  {id: 3, user_id: 5, friend_id: 4, created_at: "2015-03-13 00:06:49", updated_at: "2015-03-13 00:06:49", status: false},
+  {id: 4, user_id: 5, friend_id: 1, created_at: "2015-03-13 00:06:49", updated_at: "2015-03-13 00:06:49", status: false}
+])
 
-acou = Council.create!(user:anna, council_name:"Food")
-acou.members << missy
-acou.members << sagar
-acou.members << jay
-acou.members << steven
+Question.create!([
+  {id: 1, user_id: 5, council_id: 3, content: "Good dinner?", image_file_name: "food.jpg", image_content_type: "image/jpeg", image_file_size: 67183, image_updated_at: "2015-03-13 00:06:49", created_at: "2015-03-13 00:06:49", updated_at: "2015-03-13 00:06:50"},
+  {id: 2, user_id: 2, council_id: 1, content: "Do you like this dress?", image_file_name: "coverpicture.JPG", image_content_type: "image/jpeg", image_file_size: 16192, image_updated_at: "2015-03-13 00:06:51", created_at: "2015-03-13 00:06:52", updated_at: "2015-03-13 00:06:52"},
+  {id: 3, user_id: 5, council_id: 2, content: "Should I have a picnic time?", image_file_name: "park.JPG", image_content_type: "image/jpeg", image_file_size: 2034994, image_updated_at: "2015-03-13 00:06:52", created_at: "2015-03-13 00:06:52", updated_at: "2015-03-13 00:06:56"},
+  {id: 4, user_id: 3, council_id: 5, content: "Should I take a swim after?", image_file_name: "seine.jpg", image_content_type: "image/jpeg", image_file_size: 58052, image_updated_at: "2015-03-13 00:06:59", created_at: "2015-03-13 00:06:59", updated_at: "2015-03-13 00:07:00"}
 
+])
 
-aacou = Council.create!(user:anna, council_name:"Costumes")
-aacou.members << missy
-aacou.members << sagar
-aacou.members << jay
-aacou.members << steven
-
-scou = Council.create!(user:sagar, council_name:"Weddings")
-scou.members << jay
-scou.members << steven
-scou.members << anna
-
-dinner = anna.questions.create!(council: acou, content:'Good dinner?')
-dinner.image = File.open("/Users/melissawimberly/Desktop/food.jpg")
-dinner.save!
-dinner.answers.create!(user:sagar, like: true)
-dinner.answers.create!(user:jay, like: true)
-dinner.answers.create!(user:missy, like: true)
-dinner.answers.create!(user:steven, like: false)
-
-dress =  missy.questions.build(council: mcou, content:'Do you like this dress?')
-dress.image = File.open('/Users/melissawimberly/Desktop/coverpicture.JPG');
-dress.save!
-dress.answers.create!(user:steven, like: true)
-
-
-park = jay.questions.create!(council: jcou, content:'picnic time?')
-park.image = File.open("/Users/melissawimberly/Desktop/park.JPG")
-park.save!
-park.answers.create!(user:steven, like:true)
+Answer.create!([
+  {id: 1, question_id: 1, user_id: 3, like: true, created_at: "2015-03-13 00:06:51", updated_at: "2015-03-13 00:06:51"},
+  {id: 2, question_id: 1, user_id: 4, like: true, created_at: "2015-03-13 00:06:51", updated_at: "2015-03-13 00:06:51"},
+  {id: 3, question_id: 1, user_id: 2, like: true, created_at: "2015-03-13 00:06:51", updated_at: "2015-03-13 00:06:51"},
+  {id: 4, question_id: 1, user_id: 1, like: false, created_at: "2015-03-13 00:06:51", updated_at: "2015-03-13 00:06:51"},
+  {id: 5, question_id: 2, user_id: 1, like: true, created_at: "2015-03-13 00:06:52", updated_at: "2015-03-13 00:06:52"},
+  {id: 6, question_id: 3, user_id: 1, like: false, created_at: "2015-03-13 00:06:59", updated_at: "2015-03-13 00:06:59"},
+  {id: 7, question_id: 4, user_id: 1, like: true, created_at: "2015-03-13 00:07:00", updated_at: "2015-03-13 00:07:00"}
+])
 
 
-destination =  sagar.questions.create!(council: scou, content:'Should I take a swim after?')
-destination.image = File.open("/Users/melissawimberly/Desktop/seine.jpg")
-destination.save!
-destination.answers.create!(user:steven, like:true)
+tables = ['users', 'councils', 'council_memberships', 'friendships', 'questions', 'answers']
+tables.each do |tab|
+   statement = " select setval('#{tab}_id_seq', (select max(id) from #{tab})) ; "
+   ActiveRecord::Base.connection.execute(statement)
+end
 
-dog = jay.questions.create!(council: jcou, content:"Should I trust this dog?")
-dog.image = File.open("/Users/melissawimberly/Desktop/jay_dog.JPG")
-dog.save!
-dog.answers.create!(user:anna, like:true)
-
-spring = anna.questions.create!(council: acou, content: "Is it spring yet?")
-spring.image = File.open("/Users/melissawimberly/Desktop/spring.jpg")
-spring.save!
-spring.answers.create!(user:missy, like: true)
-
-wedding = sagar.questions.create!(council: scou, content: "Should I marry her?")
-wedding.image = File.open("/Users/melissawimberly/Desktop/sagar_wedding.png")
-wedding.save!
-wedding.answers.create!(user:missy, like: true)
