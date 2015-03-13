@@ -45,7 +45,7 @@ Question.create!([
   {id: 1, user_id: 5, council_id: 3, content: "Good dinner?", image_file_name: "food.jpg", image_content_type: "image/jpeg", image_file_size: 67183, image_updated_at: "2015-03-13 00:06:49", created_at: "2015-03-13 00:06:49", updated_at: "2015-03-13 00:06:50"},
   {id: 2, user_id: 2, council_id: 1, content: "Do you like this dress?", image_file_name: "coverpicture.JPG", image_content_type: "image/jpeg", image_file_size: 16192, image_updated_at: "2015-03-13 00:06:51", created_at: "2015-03-13 00:06:52", updated_at: "2015-03-13 00:06:52"},
   {id: 3, user_id: 5, council_id: 2, content: "Should I have a picnic time?", image_file_name: "park.JPG", image_content_type: "image/jpeg", image_file_size: 2034994, image_updated_at: "2015-03-13 00:06:52", created_at: "2015-03-13 00:06:52", updated_at: "2015-03-13 00:06:56"},
-  {id: 4, user_id: 3, council_id: 5, content: "Should I take a swim after?", image_file_name: "seine.jpg", image_content_type: "image/jpeg", image_file_size: 58052, image_updated_at: "2015-03-13 00:06:59", created_at: "2015-03-13 00:06:59", updated_at: "2015-03-13 00:07:00"}
+  {id: 4, user_id: 2, council_id: 5, content: "Should I take a swim after?", image_file_name: "seine.jpg", image_content_type: "image/jpeg", image_file_size: 58052, image_updated_at: "2015-03-13 00:06:59", created_at: "2015-03-13 00:06:59", updated_at: "2015-03-13 00:07:00"}
 
 ])
 
