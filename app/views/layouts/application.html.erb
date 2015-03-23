@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>council_app</title>
+  <title>Council</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <%= javascript_include_tag "application" %>
+
   <%= csrf_meta_tags %>
+
+  <%= favicon_link_tag 'favicon.ico' %>
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:400,700italic' rel='stylesheet' type='text/css'>
+
+  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
-<body>
 
+
+  <nav class="navybar">
+   <a class="nav_lft" href="/friendships/new"><i class="fa fa-users"></i></a>
+   <a class="nav_banner" href="/users/<%= current_user.id %>" >Council</a>
+   <a class="nav_rt" href="/councils"><i class="fa fa-gavel"></i></a>
+  </nav>
+
+<body id="main">
+<%if flash[:notice] %>
+<div class="center" id="flash_notice">
+  <%= flash[:notice] %>
+</div>
+<% end %>
+ <% if flash[:error] %>
+    <div class="notice center"><%= flash[:error] %></div>
+  <% end %>
+
+<div class="content">
 <%= yield %>
-
+</div>
 </body>
+
+
+
 </html>

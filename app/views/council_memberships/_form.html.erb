@@ -1,0 +1,12 @@
+<%= form_for :council_membership, url: {controller: 'council_memberships',action: 'create'} do |f| %>
+
+
+      <%= hidden_field_tag(:"council_membership[council_id]", @council.id ) %>
+      <select name="council_membership[user_id]">
+        <% current_user.friends.each do |friend| %>
+          <option value=<%=friend.id%>><%= friend.firstname %></option>
+        <% end %>
+      </select>
+  <%= f.submit('Add')%>
+<% end %>
+

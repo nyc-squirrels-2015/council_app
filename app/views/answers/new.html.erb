@@ -1,0 +1,13 @@
+<h1>Create a new answer</h1>
+<ul>
+  <%= form_for [@question, @answer] do |f| %>
+    <li>
+      <%= f.label :like %>
+      <%= f.check_box :like %>
+      <!-- there is no boolean type? -->
+    </li>
+    <li>
+      <%= f.submit %>
+    </li>
+  <% end %>
+</ul>

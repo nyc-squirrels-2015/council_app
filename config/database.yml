@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: council_app_development
+  database: Council_app_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -79,7 +79,6 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: council_app_production
-  username: council_app
-  password: <%= ENV['council_app_DATABASE_PASSWORD'] %>
+  database: Council_app_production
+  adapter: mysql2
+  port: 3306

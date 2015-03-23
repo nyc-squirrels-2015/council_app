@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150305212150) do
+ActiveRecord::Schema.define(version: 20150308183129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,27 +30,30 @@ ActiveRecord::Schema.define(version: 20150305212150) do
   end
 
   create_table "councils", force: :cascade do |t|
-    t.integer "user_id",      null: false
-    t.string  "council_name", null: false
+    t.integer  "user_id",      null: false
+    t.string   "council_name", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "friendships", force: :cascade do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "friend_id",  null: false
+    t.integer  "user_id",                    null: false
+    t.integer  "friend_id",                  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "status",     default: false
   end
 
   create_table "questions", force: :cascade do |t|
     t.integer  "user_id",            null: false
     t.integer  "council_id",         null: false
     t.string   "content",            null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150305212150) do
     t.string   "lastname",        null: false
     t.string   "email",           null: false
     t.string   "password_digest"
+    t.string   "prof_pic"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

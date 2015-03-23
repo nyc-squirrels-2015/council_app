@@ -1,0 +1,41 @@
+<div class="council_container page center">
+  <h1>Add member to</h1>
+  <h2> <%= @council.council_name %></h2>
+
+  <div id='council_membership_form'>
+    <%= render partial: '/council_memberships/form' , locals: {council_membership: CouncilMembership.new}%>
+  </div>
+  <div id='council_member' class="council_ajax">
+
+    <% if @council.members.count == 0 %>
+      <h5 class="no-members-error">There are no members in this council</h5>
+    <% else %>
+      <% @council.members.each do |member|%>
+
+        <h4 class='center'><%= member.firstname %> <%= member.lastname %></h4><br>
+
+      <% end %>
+    <% end %>
+
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+  $("#council_membership_form form").on('submit', function(event) {
+    event.preventDefault();
+    var data = $(this).serialize();
+    $.ajax('/council_memberships', {
+      data: data,
+      type: 'POST'
+    })
+      .then(function(response) {
+        var members = response
+       $(".council_ajax").empty()
+       for(var i=0; i < members.length; i++){
+        $(".council_ajax").append("<h4 class='center'>"+ members[i].firstname +" "+ members[i].lastname+"</h4><br>");
+       }
+      })
+  } )
+</script>
